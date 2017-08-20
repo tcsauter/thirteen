@@ -6,5 +6,7 @@
     <string name="player3">Player 3</string>
     <string name="player4">Player 4</string>
     <string name="hint_pname">Enter player name</string>
+    <string name="hint_pbid">Enter bid</string>
+    <string name="hint_pscore">Enter tricks taken</string>
 
 </resources>
