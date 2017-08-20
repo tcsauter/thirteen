@@ -10,6 +10,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/bt_enter_names"
             android:layout_gravity="end"
             android:background="@color/colorPrimary"
             android:src="@drawable/check"
@@ -25,7 +26,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/EditTextNames" />
+                android:theme="@style/EditTextNames"
+                android:id="@+id/et_p1_name"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -36,7 +38,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/EditTextNames" />
+                android:theme="@style/EditTextNames"
+                android:id="@+id/et_p2_name"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,7 +50,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/EditTextNames" />
+                android:theme="@style/EditTextNames"
+                android:id="@+id/et_p3_name"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -58,6 +62,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/EditTextNames" />
+                android:theme="@style/EditTextNames"
+                android:id="@+id/et_p4_name"/>
     </LinearLayout>
 </ScrollView>
