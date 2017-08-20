@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Thirteen</string>
+    <string name="start">START GAME</string>
+    <string name="player1">Player 1</string>
+    <string name="player2">Player 2</string>
+    <string name="player3">Player 3</string>
+    <string name="player4">Player 4</string>
+    <string name="hint_pname">Enter player name</string>
+
+</resources>
