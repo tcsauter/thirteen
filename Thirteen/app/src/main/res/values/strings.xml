@@ -8,5 +8,11 @@
     <string name="hint_pname">Enter player name</string>
     <string name="hint_pbid">Enter bid</string>
     <string name="hint_pscore">Enter tricks taken</string>
+    <string name="lblName">Player</string>
+    <string name="lblBid">Bid</string>
+    <string name="lblScore">Score</string>
+    <string name="lblSandbags">Sandbags</string>
+    <string name="btBids">BIDS</string>
+    <string name="btScores">SCORES</string>
 
 </resources>

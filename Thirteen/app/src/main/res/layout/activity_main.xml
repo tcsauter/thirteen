@@ -30,9 +30,9 @@
         android:background="@android:color/holo_red_dark"
         android:fontFamily="sans-serif"
         android:text="@string/start"
-        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
 </LinearLayout>

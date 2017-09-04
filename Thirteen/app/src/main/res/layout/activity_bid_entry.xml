@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <GridLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_enter_bids"
+            android:layout_gravity="end"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/check"
+            android:layout_margin="10dp"
+            style="@android:style/Widget.Holo.Light.ImageButton" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextViewHeaders"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/tvRound_bidEntry"/>
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/ivRound_bidEntry"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/tv_bid_p1_name"
+            android:text="@string/player1"
+            android:theme="@style/TextViewLabels" />
+
+        <EditText
+            android:id="@+id/et_p1_bid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTextBid"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/tv_bid_p2_name"
+            android:text="@string/player2"
+            android:theme="@style/TextViewLabels" />
+
+        <EditText
+            android:id="@+id/et_p2_bid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTextBid" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/tv_bid_p3_name"
+            android:text="@string/player3"
+            android:theme="@style/TextViewLabels" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTextBid"
+            android:id="@+id/et_p3_bid"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/tv_bid_p4_name"
+            android:text="@string/player4"
+            android:theme="@style/TextViewLabels" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTextBid"
+            android:id="@+id/et_p4_bid"/>
+    </GridLayout>
+</ScrollView>

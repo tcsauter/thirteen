@@ -3,4 +3,6 @@
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">@android:color/holo_blue_dark</color>
+
+    <color name="buttonRed">@android:color/holo_red_dark</color>
 </resources>

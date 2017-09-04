@@ -16,6 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BidEntryActivity"
+            android:label="@string/lblBid"
+            android:parentActivityName=".ScoreSheetActivity"/>
+        <activity android:name=".NameEntryActivity"
+            android:label="@string/lblName"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ScoreEntryActivity"
+            android:label="@string/lblScore"
+            android:parentActivityName=".ScoreSheetActivity"/>
+        <activity android:name=".ScoreSheetActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>
