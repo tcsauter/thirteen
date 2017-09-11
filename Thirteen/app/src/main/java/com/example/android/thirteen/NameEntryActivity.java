@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.net.URI;
 
@@ -40,11 +41,15 @@ public class NameEntryActivity extends AppCompatActivity {
                 names[1] = p2Name.getText().toString();
                 names[2] = p3Name.getText().toString();
                 names[3] = p4Name.getText().toString();
-                ScoreKeeper.putData("Names",names);
-
-                // Set up Score Sheet and pass names
-                Intent beginIntent = new Intent(NameEntryActivity.this, ScoreSheetActivity.class);
-                startActivity(beginIntent);
+                String validation = ScoreKeeper.editEntries(names);
+                if (validation == "empty"){
+                    Toast.makeText(getApplicationContext(), "Enter all player names to continue",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    ScoreKeeper.putData("Names",names);
+                    Intent beginIntent = new Intent(NameEntryActivity.this, ScoreSheetActivity.class);
+                    startActivity(beginIntent);
+                }
             }
         });
     }

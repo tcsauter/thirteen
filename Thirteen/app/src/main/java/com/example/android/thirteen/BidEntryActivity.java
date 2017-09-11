@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BidEntryActivity extends AppCompatActivity {
     // Define interactive variables
@@ -19,6 +20,9 @@ public class BidEntryActivity extends AppCompatActivity {
     private TextView tvRound;
     private ImageView ivRound;
 
+    // Switches
+    private boolean userWarned;
+
     // Player name array
     private int[] idArray =
             {R.id.tv_bid_p1_name, R.id.tv_bid_p2_name, R.id.tv_bid_p3_name, R.id.tv_bid_p4_name};
@@ -28,6 +32,9 @@ public class BidEntryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bid_entry);
+
+        // Set switches initial values
+        userWarned = false;
 
         // Set Round on screen
         tvRound = (TextView) findViewById(R.id.tvRound_bidEntry);
@@ -61,11 +68,49 @@ public class BidEntryActivity extends AppCompatActivity {
                 bids[1] = p2Bid.getText().toString();
                 bids[2] = p3Bid.getText().toString();
                 bids[3] = p4Bid.getText().toString();
-                ScoreKeeper.putData("Bids",bids);
+                // Check total bid count and warn user of over or under
+                int totalBid = 0;
+                for (String bid : bids){
+                    if (ScoreKeeper.isValidInteger(bid)){
+                        totalBid += Integer.valueOf(bid);
+                    } else {
+                        userWarned = true;
+                    }
+                }
+                if (!userWarned){
+                    if (totalBid > Integer.valueOf(ScoreKeeper.getRound()[0])){
+                        Toast.makeText(getApplicationContext(),
+                                "Total bid is over what's expected. Click the Submit button again to continue",
+                                Toast.LENGTH_LONG).show();
+                        userWarned = true;
+                    } else if (totalBid < Integer.valueOf(ScoreKeeper.getRound()[0])){
+                        Toast.makeText(getApplicationContext(),
+                                "Total bid is under what's expected. Click the Submit button again to continue",
+                                Toast.LENGTH_LONG).show();
+                        userWarned = true;
+                    }
+                } else {
+                    userWarned = false;
+                }
 
-                // Set up Score Sheet and pass names
-                Intent bidsIntent = new Intent(BidEntryActivity.this, ScoreSheetActivity.class);
-                startActivity(bidsIntent);
+                // Validate entries and decide to continue app or not
+                if (!userWarned){
+                    String validation = ScoreKeeper.editEntries(bids);
+                    if (validation == "neg"){
+                        Toast.makeText(getApplicationContext(),"Negative bids not allowed",
+                                Toast.LENGTH_LONG).show();
+                    } else if (validation == "empty") {
+                        Toast.makeText(getApplicationContext(), "Enter all bids to continue",
+                                Toast.LENGTH_LONG).show();
+                    } else if (validation == "overage"){
+                        Toast.makeText(getApplicationContext(), "One bid is larger than expected",
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        ScoreKeeper.putData("Bids",bids);
+                        Intent bidsIntent = new Intent(BidEntryActivity.this, ScoreSheetActivity.class);
+                        startActivity(bidsIntent);
+                    }
+                }
             }
         });
     }

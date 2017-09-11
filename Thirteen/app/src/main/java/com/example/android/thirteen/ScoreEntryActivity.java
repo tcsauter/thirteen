@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ScoreEntryActivity extends AppCompatActivity {
     // Define interactive variables
@@ -61,11 +62,36 @@ public class ScoreEntryActivity extends AppCompatActivity {
                 scores[1] = p2Score.getText().toString();
                 scores[2] = p3Score.getText().toString();
                 scores[3] = p4Score.getText().toString();
-                ScoreKeeper.putData("Scores",scores);
+                // Total scores for validation section
+                int totalScore = 0;
+                for (String score : scores){
+                    if (ScoreKeeper.isValidInteger(score)){
+                        totalScore += Integer.valueOf(score);
+                    }
+                }
 
-                // Set up Score Sheet and pass names
-                Intent scoresIntent = new Intent(ScoreEntryActivity.this, ScoreSheetActivity.class);
-                startActivity(scoresIntent);
+                // Validation section
+                String validation = ScoreKeeper.editEntries(scores);
+                if (validation == "neg"){
+                    Toast.makeText(getApplicationContext(),"Negative scores not allowed",
+                            Toast.LENGTH_LONG).show();
+                } else if (validation == "empty") {
+                    Toast.makeText(getApplicationContext(), "Enter all scores to continue",
+                            Toast.LENGTH_LONG).show();
+                } else if (validation == "overage") {
+                    Toast.makeText(getApplicationContext(), "One score is larger than expected",
+                            Toast.LENGTH_LONG).show();
+                } else if (totalScore < Integer.valueOf(ScoreKeeper.getRound()[0])){
+                    Toast.makeText(getApplicationContext(), "Total score is smaller than allowed",
+                            Toast.LENGTH_LONG).show();
+                } else if (totalScore > Integer.valueOf(ScoreKeeper.getRound()[0])){
+                    Toast.makeText(getApplicationContext(), "Total score is larger than allowed",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    ScoreKeeper.putData("Scores",scores);
+                    Intent beginIntent = new Intent(ScoreEntryActivity.this, ScoreSheetActivity.class);
+                    startActivity(beginIntent);
+                }
             }
         });
     }

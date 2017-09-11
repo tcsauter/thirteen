@@ -2,6 +2,7 @@ package com.example.android.thirteen;
 
 import android.os.Bundle;
 
+
 /**
  * Created by Travis Sauter-Hunsberger on 8/27/2017.
  */
@@ -12,6 +13,7 @@ public class ScoreKeeper {
     private static int[][] scoreHistory = new int[25][4];
     private static int round = 0;
     private static int[][] mathSheet = new int[3][4];
+    public static String message;
 
     public static void incrementRound(){
         round++;
@@ -116,6 +118,38 @@ public class ScoreKeeper {
                 mathSheet[0][index] = Integer.valueOf(value);
                 break;
             default: break;
+        }
+    }
+
+    public static String editEntries(String[] entries){
+        for (String entry : entries){
+            if (entry.length() == 0){
+                return "empty";
+            }
+
+            //* if validating numeric entries, check that they are not negative
+            if (isValidInteger(entry)){
+                if (Integer.valueOf(entry) < 0){
+                    return "neg";
+                }
+
+                if (Integer.valueOf(entry) > Integer.valueOf(getRound()[0])){
+                    return "overage";
+                }
+            }
+        }
+        return null;
+    }
+
+    public static Boolean isValidInteger(String value) {
+        try {
+            Integer val = Integer.valueOf(value);
+            if (val != null)
+                return true;
+            else
+                return false;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }
