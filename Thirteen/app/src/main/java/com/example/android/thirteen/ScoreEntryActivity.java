@@ -52,6 +52,13 @@ public class ScoreEntryActivity extends AppCompatActivity {
         p3Score = (EditText) findViewById(R.id.et_p3_score);
         p4Score = (EditText) findViewById(R.id.et_p4_score);
 
+        // Set EditText hints to show bids by player
+        String[] bids = ScoreKeeper.getBids();
+        p1Score.setHint(names[0] + " bid " + bids[0]);
+        p2Score.setHint(names[1] + " bid " + bids[1]);
+        p3Score.setHint(names[2] + " bid " + bids[2]);
+        p4Score.setHint(names[3] + " bid " + bids[3]);
+
         // Set what happens when the Enter button is clicked
         enterScores.setOnClickListener(new View.OnClickListener() {
             @Override

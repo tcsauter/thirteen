@@ -13,7 +13,24 @@ public class ScoreKeeper {
     private static int[][] scoreHistory = new int[25][4];
     private static int round = 0;
     private static int[][] mathSheet = new int[3][4];
-    public static String message;
+
+    // Switches
+    private static boolean bidSwitch = false;
+    private static boolean scoreSwitch = true;
+
+    public static void bidsTaken(){
+        bidSwitch = true;
+        scoreSwitch = false;
+    }
+
+    public static void scoresTaken(){
+        bidSwitch = false;
+        scoreSwitch = true;
+    }
+
+    public static boolean getSwitches(){
+        return bidSwitch;
+    }
 
     public static void incrementRound(){
         round++;
@@ -102,6 +119,14 @@ public class ScoreKeeper {
             names[i] = scoreCardString[0][i];
         }
         return names;
+    }
+
+    public static String[] getBids(){
+        String[] bids = new String[4];
+        for (int i=0;i<4;i++){
+            bids[i] = scoreCardString[1][i];
+        }
+        return bids;
     }
 
     public static String[][] getScoreCard(){

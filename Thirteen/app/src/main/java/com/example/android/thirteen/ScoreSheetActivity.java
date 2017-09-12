@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ScoreSheetActivity extends AppCompatActivity {
-
     // Define variable id Array for interactive views
     private int[] idArray =
             {R.id.tv_p1_name, R.id.tv_p2_name, R.id.tv_p3_name, R.id.tv_p4_name,
@@ -67,10 +66,20 @@ public class ScoreSheetActivity extends AppCompatActivity {
         btBids = (Button) findViewById(R.id.bt_Bids);
         btScores = (Button) findViewById(R.id.bt_Scores);
 
+        // Set current state of game
+        if (ScoreKeeper.getSwitches()){
+            btBids.setVisibility(View.INVISIBLE);
+            btScores.setVisibility(View.VISIBLE);
+        } else {
+            btBids.setVisibility(View.VISIBLE);
+            btScores.setVisibility(View.INVISIBLE);
+        }
+
         // Set click listeners for buttons
         btBids.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                ScoreKeeper.bidsTaken();
                 Intent bidIntent = new Intent(ScoreSheetActivity.this, BidEntryActivity.class);
                 startActivity(bidIntent);
             }
@@ -78,6 +87,7 @@ public class ScoreSheetActivity extends AppCompatActivity {
         btScores.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                ScoreKeeper.scoresTaken();
                 Intent scoreIntent = new Intent(ScoreSheetActivity.this, ScoreEntryActivity.class);
                 startActivity(scoreIntent);
             }
@@ -93,6 +103,14 @@ public class ScoreSheetActivity extends AppCompatActivity {
             for (int j=0;j<4;j++){
                 Players[i][j].setText(scoreCard[i][j]);
             }
+        }
+        // Set current state of game
+        if (ScoreKeeper.getSwitches()){
+            btBids.setVisibility(View.INVISIBLE);
+            btScores.setVisibility(View.VISIBLE);
+        } else {
+            btBids.setVisibility(View.VISIBLE);
+            btScores.setVisibility(View.INVISIBLE);
         }
     }
 

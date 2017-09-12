@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <GridLayout
+    <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -28,12 +28,26 @@
                 android:layout_height="wrap_content"
                 android:theme="@style/TextViewHeaders"
                 android:layout_gravity="center_vertical"
-                android:id="@+id/tvRound_bidEntry"/>
+                android:id="@+id/tvRound_bidEntry"
+                tools:text="Round 1"/>
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:id="@+id/ivRound_bidEntry"/>
+                android:id="@+id/ivRound_bidEntry"
+                tools:src="@drawable/round_up"/>
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="15sp"
+            android:padding="4dp"
+            android:id="@+id/tv_bidsRemaining"
+            android:background="@android:color/holo_red_dark"
+            android:textColor="@android:color/background_light"
+            tools:text="1 Bids Remaining" />
 
         <TextView
             android:layout_width="match_parent"
@@ -86,5 +100,5 @@
             android:layout_height="wrap_content"
             android:theme="@style/EditTextBid"
             android:id="@+id/et_p4_bid"/>
-    </GridLayout>
+    </LinearLayout>
 </ScrollView>

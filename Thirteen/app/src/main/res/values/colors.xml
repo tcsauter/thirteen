@@ -5,4 +5,5 @@
     <color name="colorAccent">@android:color/holo_blue_dark</color>
 
     <color name="buttonRed">@android:color/holo_red_dark</color>
+    <color name="buttonDisabled">#cc9696</color>
 </resources>

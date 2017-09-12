@@ -3,6 +3,7 @@ package com.example.android.thirteen;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -18,10 +19,8 @@ public class BidEntryActivity extends AppCompatActivity {
     private EditText p3Bid;
     private EditText p4Bid;
     private TextView tvRound;
+    private TextView tvBidsRemaining;
     private ImageView ivRound;
-
-    // Switches
-    private boolean userWarned;
 
     // Player name array
     private int[] idArray =
@@ -33,13 +32,11 @@ public class BidEntryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bid_entry);
 
-        // Set switches initial values
-        userWarned = false;
-
         // Set Round on screen
         tvRound = (TextView) findViewById(R.id.tvRound_bidEntry);
         ivRound = (ImageView) findViewById(R.id.ivRound_bidEntry);
         setRound();
+        tvBidsRemaining = (TextView) findViewById(R.id.tv_bidsRemaining);
 
         // Set Player names on screen
         for (int i=0;i<idArray.length;i++){
@@ -58,58 +55,81 @@ public class BidEntryActivity extends AppCompatActivity {
         p3Bid = (EditText) findViewById(R.id.et_p3_bid);
         p4Bid = (EditText) findViewById(R.id.et_p4_bid);
 
+        // Update bid counter as focus shifts off of entry fields
+        p1Bid.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus){
+                String[] bids = packageBids();
+                int totalBids = 0;
+                for (String bid : bids){
+                    if (ScoreKeeper.isValidInteger(bid)){
+                        totalBids += Integer.valueOf(bid);
+                    }
+                }
+                updateBids(totalBids);
+            }
+        });
+        p2Bid.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus){
+                String[] bids = packageBids();
+                int totalBids = 0;
+                for (String bid : bids){
+                    if (ScoreKeeper.isValidInteger(bid)){
+                        totalBids += Integer.valueOf(bid);
+                    }
+                }
+                updateBids(totalBids);
+            }
+        });
+        p3Bid.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus){
+                String[] bids = packageBids();
+                int totalBids = 0;
+                for (String bid : bids){
+                    if (ScoreKeeper.isValidInteger(bid)){
+                        totalBids += Integer.valueOf(bid);
+                    }
+                }
+                updateBids(totalBids);
+            }
+        });
+        p4Bid.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus){
+                String[] bids = packageBids();
+                int totalBids = 0;
+                for (String bid : bids){
+                    if (ScoreKeeper.isValidInteger(bid)){
+                        totalBids += Integer.valueOf(bid);
+                    }
+                }
+                updateBids(totalBids);
+            }
+        });
+
         // Set what happens when the Enter button is clicked
         enterBids.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Store bids in ScoreKeeper to be passed to Score Sheet
-                String[] bids = new String[4];
-                bids[0] = p1Bid.getText().toString();
-                bids[1] = p2Bid.getText().toString();
-                bids[2] = p3Bid.getText().toString();
-                bids[3] = p4Bid.getText().toString();
-                // Check total bid count and warn user of over or under
-                int totalBid = 0;
-                for (String bid : bids){
-                    if (ScoreKeeper.isValidInteger(bid)){
-                        totalBid += Integer.valueOf(bid);
-                    } else {
-                        userWarned = true;
-                    }
-                }
-                if (!userWarned){
-                    if (totalBid > Integer.valueOf(ScoreKeeper.getRound()[0])){
-                        Toast.makeText(getApplicationContext(),
-                                "Total bid is over what's expected. Click the Submit button again to continue",
-                                Toast.LENGTH_LONG).show();
-                        userWarned = true;
-                    } else if (totalBid < Integer.valueOf(ScoreKeeper.getRound()[0])){
-                        Toast.makeText(getApplicationContext(),
-                                "Total bid is under what's expected. Click the Submit button again to continue",
-                                Toast.LENGTH_LONG).show();
-                        userWarned = true;
-                    }
-                } else {
-                    userWarned = false;
-                }
-
+                String[] bids = packageBids();
                 // Validate entries and decide to continue app or not
-                if (!userWarned){
-                    String validation = ScoreKeeper.editEntries(bids);
-                    if (validation == "neg"){
-                        Toast.makeText(getApplicationContext(),"Negative bids not allowed",
-                                Toast.LENGTH_LONG).show();
-                    } else if (validation == "empty") {
-                        Toast.makeText(getApplicationContext(), "Enter all bids to continue",
-                                Toast.LENGTH_LONG).show();
-                    } else if (validation == "overage"){
-                        Toast.makeText(getApplicationContext(), "One bid is larger than expected",
-                                Toast.LENGTH_LONG).show();
-                    } else {
-                        ScoreKeeper.putData("Bids",bids);
-                        Intent bidsIntent = new Intent(BidEntryActivity.this, ScoreSheetActivity.class);
-                        startActivity(bidsIntent);
-                    }
+                String validation = ScoreKeeper.editEntries(bids);
+                if (validation == "neg"){
+                    Toast.makeText(getApplicationContext(),"Negative bids not allowed",
+                            Toast.LENGTH_LONG).show();
+                } else if (validation == "empty") {
+                    Toast.makeText(getApplicationContext(), "Enter all bids to continue",
+                            Toast.LENGTH_LONG).show();
+                } else if (validation == "overage"){
+                    Toast.makeText(getApplicationContext(), "One bid is larger than expected",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    ScoreKeeper.putData("Bids",bids);
+                    Intent bidsIntent = new Intent(BidEntryActivity.this, ScoreSheetActivity.class);
+                    startActivity(bidsIntent);
                 }
             }
         });
@@ -130,5 +150,26 @@ public class BidEntryActivity extends AppCompatActivity {
                 ivRound.setImageResource(R.drawable.round_top);
                 break;
         }
+    }
+
+    private void updateBids(int bidTotal){
+        int round = Integer.valueOf(ScoreKeeper.getRound()[0]);
+        int total = 0;
+        total = round - bidTotal;
+        if (total == 1 || total == -1){
+            tvBidsRemaining.setText(Integer.toString(total) + " Bid Remaining");
+        } else {
+            tvBidsRemaining.setText(Integer.toString(total) + " Bids Remaining");
+        }
+    }
+
+    private String[] packageBids(){
+        // Store bids in ScoreKeeper to be passed to Score Sheet
+        String[] bids = new String[4];
+        bids[0] = p1Bid.getText().toString();
+        bids[1] = p2Bid.getText().toString();
+        bids[2] = p3Bid.getText().toString();
+        bids[3] = p4Bid.getText().toString();
+        return bids;
     }
 }
