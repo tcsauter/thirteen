@@ -1,7 +1,5 @@
 package com.example.android.thirteen;
 
-import android.os.Bundle;
-
 
 /**
  * Created by Travis Sauter-Hunsberger on 8/27/2017.

@@ -8,8 +8,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.net.URI;
-
 public class NameEntryActivity extends AppCompatActivity {
 
     // Define interactive variables

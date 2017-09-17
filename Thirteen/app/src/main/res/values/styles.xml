@@ -73,8 +73,4 @@
         <item name="android:inputType">number</item>
     </style>
 
-    <style name="DisabledButton">
-        <item name="android:background">@color/buttonDisabled</item>
-    </style>
-
 </resources>
