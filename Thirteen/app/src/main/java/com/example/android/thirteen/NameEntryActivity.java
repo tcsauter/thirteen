@@ -9,7 +9,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class NameEntryActivity extends AppCompatActivity {
-
     // Define interactive variables
     private ImageButton enterNames;
     private EditText p1Name;
@@ -21,6 +20,9 @@ public class NameEntryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_entry);
+
+        // Initialize ScoreSheet
+        ScoreKeeper.initialize();
 
         // Define and initialize all interactive views
         enterNames = (ImageButton) findViewById(R.id.bt_enter_names);
@@ -47,6 +49,7 @@ public class NameEntryActivity extends AppCompatActivity {
                     ScoreKeeper.putData("Names",names);
                     Intent beginIntent = new Intent(NameEntryActivity.this, ScoreSheetActivity.class);
                     startActivity(beginIntent);
+                    finish();
                 }
             }
         });

@@ -16,6 +16,27 @@ public class ScoreKeeper {
     private static boolean bidSwitch = false;
     private static boolean scoreSwitch = true;
 
+    public static void initialize(){
+        for (int i=0;i<25;i++){
+            for (int j=0;j<4;j++){
+                if (i<3){
+                    mathSheet[i][j] = 0;
+                }
+                if (i<4){
+                    if (i == 0){
+                        scoreCardString[i][j] = "";
+                    } else {
+                        scoreCardString[i][j] = "0";
+                    }
+                }
+                scoreHistory[i][j] = 0;
+            }
+        }
+        round = 0;
+        bidSwitch = false;
+        scoreSwitch = true;
+    }
+
     public static void bidsTaken(){
         bidSwitch = true;
         scoreSwitch = false;
@@ -173,6 +194,50 @@ public class ScoreKeeper {
                 return false;
         } catch (NumberFormatException e) {
             return false;
+        }
+    }
+
+    public static void rotatePlayers(){
+        String[][] scoreCardStringHold = new String[4][4];
+        int[][] scoreHistoryHold = new int[25][4];
+        int[][] mathSheetHold = new int[3][4];
+
+        for (int i=0;i<25;i++){
+            for (int j=0;j<4;j++){
+                if (i<3){
+                    mathSheetHold[i][j] = mathSheet[i][j];
+                    mathSheet[i][j] = 0;
+                }
+                if (i<4){
+                    scoreCardStringHold[i][j] = scoreCardString[i][j];
+                    scoreCardString[i][j] = "";
+                }
+                scoreHistoryHold[i][j] = scoreHistory[i][j];
+                scoreHistory[i][j] = 0;
+            }
+        }
+        for (int i=0;i<25;i++){
+            for (int j=0;j<4;j++){
+                if (i<3){
+                    if (j<3){
+                        mathSheet[i][j+1] = mathSheetHold[i][j];
+                    } else {
+                        mathSheet[i][0] = mathSheetHold[i][j];
+                    }
+                }
+                if (i<4){
+                    if (j<3){
+                        scoreCardString[i][j+1] = scoreCardStringHold[i][j];
+                    } else {
+                        scoreCardString[i][0] = scoreCardStringHold[i][j];
+                    }
+                }
+                if (j<3){
+                    scoreHistory[i][j+1] = scoreHistoryHold[i][j];
+                } else {
+                    scoreHistory[i][0] = scoreHistoryHold[i][j];
+                }
+            }
         }
     }
 }

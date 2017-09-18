@@ -96,8 +96,11 @@ public class ScoreEntryActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else {
                     ScoreKeeper.putData("Scores",scores);
+                    /*
                     Intent beginIntent = new Intent(ScoreEntryActivity.this, ScoreSheetActivity.class);
                     startActivity(beginIntent);
+                    */
+                    finish();
                 }
             }
         });
@@ -106,6 +109,7 @@ public class ScoreEntryActivity extends AppCompatActivity {
     protected void onPause(){
         super.onPause();
         ScoreKeeper.incrementRound();
+        ScoreKeeper.rotatePlayers();
     }
 
     private void setRound() {
