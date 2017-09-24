@@ -27,8 +27,6 @@ public class ScoreSheetActivity extends AppCompatActivity {
     // Array for player information
     private TextView[][] Players = new TextView[4][4];
 
-    //12345
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,35 +45,9 @@ public class ScoreSheetActivity extends AppCompatActivity {
         tvRound = (TextView) findViewById(R.id.tvRound_scoreSheet);
         ivRound = (ImageView) findViewById(R.id.ivRound_scoreSheet);
 
-        // Initialize Bids, Scores, and Sandbags to 0
-        for (int i=1;i<=3;i++){
-            for (int j=0;j<=3;j++){
-                Players[i][j].setText("0");
-            }
-        }
-
-        // Get names and add to screen
-        String[] names = new String[4];
-        names = ScoreKeeper.getNames();
-        for (int i=0;i<names.length;i++){
-            Players[0][i].setText(names[i]);
-        }
-
-        // Get round and add to screen
-        setRound();
-
         // Bind Button variables to buttons
         btBids = (Button) findViewById(R.id.bt_Bids);
         btScores = (Button) findViewById(R.id.bt_Scores);
-
-        // Set current state of game
-        if (ScoreKeeper.getSwitches()){
-            btBids.setVisibility(View.INVISIBLE);
-            btScores.setVisibility(View.VISIBLE);
-        } else {
-            btBids.setVisibility(View.VISIBLE);
-            btScores.setVisibility(View.INVISIBLE);
-        }
 
         // Set click listeners for buttons
         btBids.setOnClickListener(new View.OnClickListener(){
@@ -114,6 +86,8 @@ public class ScoreSheetActivity extends AppCompatActivity {
             btBids.setVisibility(View.VISIBLE);
             btScores.setVisibility(View.INVISIBLE);
         }
+        // Set current round
+        setRound();
     }
 
     private void setRound() {

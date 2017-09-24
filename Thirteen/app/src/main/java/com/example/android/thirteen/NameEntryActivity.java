@@ -22,6 +22,9 @@ public class NameEntryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_entry);
 
+        // Initialize ScoreSheet
+        ScoreKeeper.initialize();
+
         // Define and initialize all interactive views
         enterNames = (ImageButton) findViewById(R.id.bt_enter_names);
         p1Name = (EditText) findViewById(R.id.et_p1_name);
@@ -44,9 +47,10 @@ public class NameEntryActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter all player names to continue",
                             Toast.LENGTH_LONG).show();
                 } else {
-                    ScoreKeeper.putData("Names",names);
+                    ScoreKeeper.assignPlayers(names);
                     Intent beginIntent = new Intent(NameEntryActivity.this, ScoreSheetActivity.class);
                     startActivity(beginIntent);
+                    finish();
                 }
             }
         });

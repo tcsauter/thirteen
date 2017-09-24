@@ -18,13 +18,30 @@ class Player {
     private ArrayList<Integer> mTakeHistory;
     private ArrayList<Integer> mScoreHistory;
 
-    public Player(int position, String name) throws Error{
+    // Position-only constructor
+    public Player(int position){
+        mPosition = position;
+        mName = null;
+        mCurBid = 0;
+        mCurTake = 0;
+        mSandbags = 0;
+        mTotScore = 0;
+        mBidHistory = new ArrayList<Integer>(25);
+        mTakeHistory = new ArrayList<Integer>(25);
+        mScoreHistory = new ArrayList<Integer>(25);
+    }
+
+    // Constructor that declares position and name up front
+    public Player(int position, String name){
         mPosition = position;
         mName = name;
         mCurBid = 0;
         mCurTake = 0;
         mSandbags = 0;
         mTotScore = 0;
+        mBidHistory = new ArrayList<Integer>(25);
+        mTakeHistory = new ArrayList<Integer>(25);
+        mScoreHistory = new ArrayList<Integer>(25);
     }
 
     public void setBid(int bid){
@@ -39,7 +56,7 @@ class Player {
     public void setTake(int take){
         mCurTake = take;
         mTakeHistory.add(take);
-        if ((mCurTake - mCurBid) >= 0){
+        if (mCurTake >= mCurBid){
             mSandbags += (mCurTake - mCurBid);
             mTotScore += (mCurBid * 10) + (mCurTake - mCurBid);
             mScoreHistory.add((mCurBid * 10) + (mCurTake - mCurBid));
@@ -77,7 +94,11 @@ class Player {
         mName = pName;
     }
 
-    public void changePosition(){
-        mPosition++;
+    public void changePosition(int positionIncrement){
+        mPosition += positionIncrement;
+    }
+
+    public int getPosition(){
+        return mPosition;
     }
 }

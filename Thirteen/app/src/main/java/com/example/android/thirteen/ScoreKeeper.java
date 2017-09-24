@@ -2,19 +2,53 @@ package com.example.android.thirteen;
 
 
 /**
- * Created by Travis Sauter-Hunsberger on 8/27/2017.
+ * Static class to maintain game details and serve them to the different views.
  */
 
 public class ScoreKeeper {
+    // Declare Player objects
+    public static Player player1;
+    public static Player player2;
+    public static Player player3;
+    public static Player player4;
+
     // initialize container variables for scores
-    private static String[][] scoreCardString = new String[4][4];
-    private static int[][] scoreHistory = new int[25][4];
+    private static String[][] scoreCardString;
     private static int round = 0;
-    private static int[][] mathSheet = new int[3][4];
 
     // Switches
     private static boolean bidSwitch = false;
     private static boolean scoreSwitch = true;
+
+    public static void assignPlayers(String[] names){
+        player1 = new Player(0, names[0]);
+        player2 = new Player(1, names[1]);
+        player3 = new Player(2, names[2]);
+        player4 = new Player(3, names[3]);
+        scoreCardString = new String[4][4];
+        loadScoreCard();
+    }
+
+    public static void initialize(){
+        round = 0;
+        bidSwitch = false;
+        scoreSwitch = true;
+        player1 = null;
+        player2 = null;
+        player3 = null;
+        player4 = null;
+        scoreCardString = null;
+    }
+
+    private static void loadScoreCard(){
+        Player[] playerList = sortPlayerArray();
+        for (Player player : playerList){
+            scoreCardString[0][player.getPosition()] = player.getName();
+            scoreCardString[1][player.getPosition()] = Integer.toString(player.getBid());
+            scoreCardString[2][player.getPosition()] = Integer.toString(player.getScore());
+            scoreCardString[3][player.getPosition()] = Integer.toString(player.getSandbags());
+        }
+    }
 
     public static void bidsTaken(){
         bidSwitch = true;
@@ -52,68 +86,45 @@ public class ScoreKeeper {
         return roundString;
     }
 
-    // Populate scoreCardString with player names
+    private static Player[] sortPlayerArray(){
+        Player[] playerList = new Player[4];
+        playerList[player1.getPosition()] = player1;
+        playerList[player2.getPosition()] = player2;
+        playerList[player3.getPosition()] = player3;
+        playerList[player4.getPosition()] = player4;
+        return playerList;
+    }
+
+    // Populate scoreCardString with player info
     public static void putData(String type, String[] values){
+        Player[] playerList = sortPlayerArray();
         switch (type){
             case "Names":
                 for (int i=0;i<values.length;i++){
                     scoreCardString[0][i] = values[i];
+                    playerList[i].setName(values[i]);
                 }
                 break;
             case "Bids":
                 for (int i=0;i<values.length;i++){
                     scoreCardString[1][i] = values[i];
-                    mathSheet[0][i] = Integer.valueOf(values[i]);
+                    playerList[i].setBid(Integer.valueOf(values[i]));
                 }
                 break;
             case "Scores":
-                calculateScore(values);
+                for (int i=0;i<values.length;i++){
+                    playerList[i].setTake(Integer.valueOf(values[i]));
+                    scoreCardString[2][i] = Integer.toString(playerList[i].getScore());
+                    scoreCardString[3][i] = Integer.toString(playerList[i].getSandbags());
+                }
                 break;
             default: break;
         }
     }
 
-    private static void calculateScore(String[] scores){
-        int score = 0;
-        int bid = 0;
-        int calculatedScore;
-        int sandBags;
-        for (int i=0;i<scores.length;i++){
-            score = Integer.valueOf(scores[i]);
-            bid = mathSheet[0][i];
-            calculatedScore = 0;
-            sandBags = 0;
-            if (score<bid){
-                calculatedScore = bid * -10;
-            } else if (score==bid){
-                calculatedScore = bid * 10;
-            } else {
-                sandBags = score - bid;
-                calculatedScore = (bid * 10) + sandBags;
-            }
-            putScores(i,calculatedScore);
-            putSandbags(i,sandBags);
-        }
-    }
-
-    private static void putScores(int index, int score){
-        if (round == 0){
-            scoreHistory[round][index] = score;
-        } else {
-            scoreHistory[round][index] = scoreHistory[round - 1][index] + score;
-        }
-        mathSheet[1][index] += score;
-        scoreCardString[2][index] = Integer.toString(mathSheet[1][index]);
-    }
-
-    private static void putSandbags(int index, int sandBag){
-        mathSheet[2][index] += sandBag;
-        scoreCardString[3][index] = Integer.toString(mathSheet[2][index]);
-    }
-
     public static String[] getNames(){
         String[] names = new String[4];
-        for (int i=0;i<4;i++){
+        for (int i=0;i<names.length;i++){
             names[i] = scoreCardString[0][i];
         }
         return names;
@@ -132,13 +143,15 @@ public class ScoreKeeper {
     }
 
     public static void updateData(int index,String type,String value){
+        Player[] playerList = sortPlayerArray();
         switch (type){
             case "Name":
                 scoreCardString[0][index] = value;
+                playerList[index].setName(value);
                 break;
             case "Bid":
                 scoreCardString[1][index] = value;
-                mathSheet[0][index] = Integer.valueOf(value);
+                playerList[index].setBid(Integer.valueOf(value));
                 break;
             default: break;
         }
@@ -174,5 +187,17 @@ public class ScoreKeeper {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public static void rotatePlayers(){
+        Player[] playerList = sortPlayerArray();
+        for (Player player : playerList){
+            if (player.getPosition()==3){
+                player.changePosition(-3);
+            } else {
+                player.changePosition(1);
+            }
+        }
+        loadScoreCard();
     }
 }
