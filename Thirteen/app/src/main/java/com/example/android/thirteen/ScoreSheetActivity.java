@@ -6,16 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
-public class ScoreSheetActivity extends AppCompatActivity {
-    // Define variable id Array for interactive views
-    private int[] idArray =
-            {R.id.tv_p1_name, R.id.tv_p2_name, R.id.tv_p3_name, R.id.tv_p4_name,
-             R.id.tv_p1_bid, R.id.tv_p2_bid, R.id.tv_p3_bid, R.id.tv_p4_bid,
-             R.id.tv_p1_score, R.id.tv_p2_score, R.id.tv_p3_score, R.id.tv_p4_score,
-             R.id.tv_p1_sandbags, R.id.tv_p2_sandbags, R.id.tv_p3_sandbags, R.id.tv_p4_sandbags};
+import java.util.ArrayList;
 
+public class ScoreSheetActivity extends AppCompatActivity {
     // Define variables for access to buttons
     private Button btBids;
     private Button btScores;
@@ -24,22 +20,13 @@ public class ScoreSheetActivity extends AppCompatActivity {
     private TextView tvRound;
     private ImageView ivRound;
 
-    // Array for player information
-    private TextView[][] Players = new TextView[4][4];
+    // ArrayList for Player Objects
+    ArrayList<Player> players = new ArrayList<Player>(4);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_sheet);
-
-        // Initialize Players array
-        int x = 0;
-        for (int i=0;i<4;i++){
-            for (int j=0;j<4;j++){
-                Players[i][j] = (TextView) findViewById(idArray[x]);
-                x++;
-            }
-        }
 
         // Bind Round info variables to screen
         tvRound = (TextView) findViewById(R.id.tvRound_scoreSheet);
@@ -49,21 +36,31 @@ public class ScoreSheetActivity extends AppCompatActivity {
         btBids = (Button) findViewById(R.id.bt_Bids);
         btScores = (Button) findViewById(R.id.bt_Scores);
 
+        // Set up ArrayList of Players
+        players.add(ScoreKeeper.player1);
+        players.add(ScoreKeeper.player2);
+        players.add(ScoreKeeper.player3);
+        players.add(ScoreKeeper.player4);
+
         // Set click listeners for buttons
         btBids.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                ScoreKeeper.bidsTaken();
-                Intent bidIntent = new Intent(ScoreSheetActivity.this, BidEntryActivity.class);
-                startActivity(bidIntent);
+                if (btBids.isActivated()){
+                    ScoreKeeper.bidsTaken();
+                    Intent bidIntent = new Intent(ScoreSheetActivity.this, BidEntryActivity.class);
+                    startActivity(bidIntent);
+                }
             }
         });
         btScores.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                ScoreKeeper.scoresTaken();
-                Intent scoreIntent = new Intent(ScoreSheetActivity.this, ScoreEntryActivity.class);
-                startActivity(scoreIntent);
+                if (btScores.isActivated()){
+                    ScoreKeeper.scoresTaken();
+                    Intent scoreIntent = new Intent(ScoreSheetActivity.this, ScoreEntryActivity.class);
+                    startActivity(scoreIntent);
+                }
             }
         });
     }
@@ -71,6 +68,7 @@ public class ScoreSheetActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        /*
         String[][] scoreCard = new String[4][4];
         scoreCard = ScoreKeeper.getScoreCard();
         for (int i=0;i<4;i++){
@@ -78,16 +76,40 @@ public class ScoreSheetActivity extends AppCompatActivity {
                 Players[i][j].setText(scoreCard[i][j]);
             }
         }
+        */
         // Set current state of game
         if (ScoreKeeper.getSwitches()){
-            btBids.setVisibility(View.INVISIBLE);
-            btScores.setVisibility(View.VISIBLE);
+            btBids.setActivated(false);
+            btScores.setActivated(true);
+            if (this.getResources().getBoolean(R.bool.is_landscape)){
+                btBids.setBackgroundResource(R.color.btn_disabled);
+                btScores.setBackgroundResource(R.color.red);
+            } else {
+                btBids.setVisibility(View.GONE);
+                btScores.setVisibility(View.VISIBLE);
+            }
         } else {
-            btBids.setVisibility(View.VISIBLE);
-            btScores.setVisibility(View.INVISIBLE);
+            btBids.setActivated(true);
+            btScores.setActivated(false);
+            if (this.getResources().getBoolean(R.bool.is_landscape)){
+                btBids.setBackgroundResource(R.color.red);
+                btScores.setBackgroundResource(R.color.btn_disabled);
+            } else {
+                btBids.setVisibility(View.VISIBLE);
+                btScores.setVisibility(View.GONE);
+            }
         }
         // Set current round
         setRound();
+
+        // Set up ArrayList of Players
+        players.set(ScoreKeeper.player1.getPosition(),ScoreKeeper.player1);
+        players.set(ScoreKeeper.player2.getPosition(),ScoreKeeper.player2);
+        players.set(ScoreKeeper.player3.getPosition(),ScoreKeeper.player3);
+        players.set(ScoreKeeper.player4.getPosition(),ScoreKeeper.player4);
+        PlayerAdapter adapter = new PlayerAdapter(this,players);
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(adapter);
     }
 
     private void setRound() {

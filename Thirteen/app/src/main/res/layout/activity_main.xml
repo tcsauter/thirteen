@@ -28,9 +28,9 @@
         android:fontFamily="sans-serif"
         android:text="@string/start"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <!--
 

@@ -4,35 +4,41 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <GridLayout
+    <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bt_enter_scores"
-            android:layout_gravity="end"
-            android:background="@color/colorPrimary"
-            android:src="@drawable/check"
-            android:layout_margin="10dp"
-            style="@android:style/Widget.Holo.Light.ImageButton" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
             android:orientation="horizontal"
-            android:layout_gravity="center_horizontal">
+            android:background="@color/colorPrimary"
+            android:elevation="10dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:layout_height="wrap_content"
+                android:textAlignment="viewEnd"
                 android:theme="@style/TextViewHeaders"
                 android:layout_gravity="center_vertical"
-                android:id="@+id/tvRound_scoreEntry"/>
+                android:id="@+id/tvRound_scoreEntry"
+                tools:text="Round 1"/>
             <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:id="@+id/ivRound_scoreEntry"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/ivRound_scoreEntry"
+                android:padding="5dp"
+                tools:src="@drawable/round_up"/>
+            <ImageButton
+                android:id="@+id/bt_enter_scores"
+                style="@android:style/Widget.Holo.Light.ImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/check" />
         </LinearLayout>
 
         <TextView
@@ -86,5 +92,5 @@
             android:layout_height="wrap_content"
             android:theme="@style/EditTextScore"
             android:id="@+id/et_p4_score"/>
-    </GridLayout>
+    </LinearLayout>
 </ScrollView>

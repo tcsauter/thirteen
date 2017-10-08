@@ -7,15 +7,23 @@
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bt_enter_names"
-            android:layout_gravity="end"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
             android:background="@color/colorPrimary"
-            android:src="@drawable/check"
-            android:layout_margin="10dp"
-            style="@android:style/Widget.Holo.Light.ImageButton" />
+            android:elevation="10dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/bt_enter_names"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/check" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"

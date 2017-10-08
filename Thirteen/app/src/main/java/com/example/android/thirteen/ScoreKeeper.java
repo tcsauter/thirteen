@@ -42,11 +42,13 @@ public class ScoreKeeper {
 
     private static void loadScoreCard(){
         Player[] playerList = sortPlayerArray();
+        int playerPosition = 0;
         for (Player player : playerList){
-            scoreCardString[0][player.getPosition()] = player.getName();
-            scoreCardString[1][player.getPosition()] = Integer.toString(player.getBid());
-            scoreCardString[2][player.getPosition()] = Integer.toString(player.getScore());
-            scoreCardString[3][player.getPosition()] = Integer.toString(player.getSandbags());
+            playerPosition = player.getPosition();
+            scoreCardString[0][playerPosition] = player.getName();
+            scoreCardString[1][playerPosition] = Integer.toString(player.getBid());
+            scoreCardString[2][playerPosition] = Integer.toString(player.getScore());
+            scoreCardString[3][playerPosition] = Integer.toString(player.getSandbags());
         }
     }
 

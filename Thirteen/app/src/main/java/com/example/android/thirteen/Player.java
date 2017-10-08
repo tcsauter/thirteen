@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 class Player {
     private int mPosition;
+    private int mOrigPosition;
     private String mName;
     private int mCurBid;
     private int mCurTake;
@@ -21,6 +22,7 @@ class Player {
     // Position-only constructor
     public Player(int position){
         mPosition = position;
+        mOrigPosition = position;
         mName = null;
         mCurBid = 0;
         mCurTake = 0;
@@ -34,6 +36,7 @@ class Player {
     // Constructor that declares position and name up front
     public Player(int position, String name){
         mPosition = position;
+        mOrigPosition = position;
         mName = name;
         mCurBid = 0;
         mCurTake = 0;
@@ -53,6 +56,10 @@ class Player {
         return mCurBid;
     }
 
+    public int getOriginalPosition(){
+        return mOrigPosition;
+    }
+
     public void setTake(int take){
         mCurTake = take;
         mTakeHistory.add(take);
@@ -64,6 +71,7 @@ class Player {
             mTotScore += -1 * (mCurBid * 10);
             mScoreHistory.add(-1 * (mCurBid * 10));
         }
+        mCurBid = 0;
     }
 
     public int getScore(){
