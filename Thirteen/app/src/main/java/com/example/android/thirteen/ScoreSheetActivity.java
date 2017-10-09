@@ -47,7 +47,6 @@ public class ScoreSheetActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if (btBids.isActivated()){
-                    ScoreKeeper.bidsTaken();
                     Intent bidIntent = new Intent(ScoreSheetActivity.this, BidEntryActivity.class);
                     startActivity(bidIntent);
                 }
@@ -57,7 +56,6 @@ public class ScoreSheetActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if (btScores.isActivated()){
-                    ScoreKeeper.scoresTaken();
                     Intent scoreIntent = new Intent(ScoreSheetActivity.this, ScoreEntryActivity.class);
                     startActivity(scoreIntent);
                 }

@@ -69,39 +69,4 @@
         android:id="@+id/list"
         tools:context="com.example.android.thirteen.ScoreSheetActivity"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="64dp">
-
-        <Button
-            android:id="@+id/bt_Bidss"
-            style="@android:style/Widget.Holo.Light.ImageButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_red_dark"
-            android:elevation="18dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/btBids"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/bt_Scoresa"
-            style="@android:style/Widget.Holo.Light.ImageButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_red_dark"
-            android:elevation="18dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/btScores"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-
-    </RelativeLayout>
-
 </LinearLayout>

@@ -127,6 +127,7 @@ public class BidEntryActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else {
                     ScoreKeeper.putData("Bids",bids);
+                    ScoreKeeper.bidsTaken();
                     finish();
                 }
             }

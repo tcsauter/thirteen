@@ -96,16 +96,13 @@ public class ScoreEntryActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else {
                     ScoreKeeper.putData("Scores",scores);
+                    ScoreKeeper.scoresTaken();
+                    ScoreKeeper.incrementRound();
+                    ScoreKeeper.rotatePlayers();
                     finish();
                 }
             }
         });
-    }
-
-    protected void onPause(){
-        super.onPause();
-        ScoreKeeper.incrementRound();
-        ScoreKeeper.rotatePlayers();
     }
 
     private void setRound() {
