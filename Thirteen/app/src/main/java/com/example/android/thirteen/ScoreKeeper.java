@@ -1,6 +1,8 @@
 package com.example.android.thirteen;
 
 
+import java.util.ArrayList;
+
 /**
  * Static class to maintain game details and serve them to the different views.
  */
@@ -11,6 +13,7 @@ public class ScoreKeeper {
     public static Player player2;
     public static Player player3;
     public static Player player4;
+    public static ArrayList<Player> players = new ArrayList<Player>(4);
 
     // initialize container variables for scores
     private static String[][] scoreCardString;
@@ -25,6 +28,10 @@ public class ScoreKeeper {
         player2 = new Player(1, names[1]);
         player3 = new Player(2, names[2]);
         player4 = new Player(3, names[3]);
+        players.add(player1);
+        players.add(player2);
+        players.add(player3);
+        players.add(player4);
         scoreCardString = new String[4][4];
         loadScoreCard();
     }
@@ -200,6 +207,10 @@ public class ScoreKeeper {
                 player.changePosition(1);
             }
         }
+        players.set(player1.getPosition(),ScoreKeeper.player1);
+        players.set(player2.getPosition(),ScoreKeeper.player2);
+        players.set(player3.getPosition(),ScoreKeeper.player3);
+        players.set(player4.getPosition(),ScoreKeeper.player4);
         loadScoreCard();
     }
 }

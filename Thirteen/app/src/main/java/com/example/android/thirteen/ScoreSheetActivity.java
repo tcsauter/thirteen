@@ -20,9 +20,6 @@ public class ScoreSheetActivity extends AppCompatActivity {
     private TextView tvRound;
     private ImageView ivRound;
 
-    // ArrayList for Player Objects
-    ArrayList<Player> players = new ArrayList<Player>(4);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,12 +32,6 @@ public class ScoreSheetActivity extends AppCompatActivity {
         // Bind Button variables to buttons
         btBids = (Button) findViewById(R.id.bt_Bids);
         btScores = (Button) findViewById(R.id.bt_Scores);
-
-        // Set up ArrayList of Players
-        players.add(ScoreKeeper.player1);
-        players.add(ScoreKeeper.player2);
-        players.add(ScoreKeeper.player3);
-        players.add(ScoreKeeper.player4);
 
         // Set click listeners for buttons
         btBids.setOnClickListener(new View.OnClickListener(){
@@ -100,12 +91,8 @@ public class ScoreSheetActivity extends AppCompatActivity {
         // Set current round
         setRound();
 
-        // Set up ArrayList of Players
-        players.set(ScoreKeeper.player1.getPosition(),ScoreKeeper.player1);
-        players.set(ScoreKeeper.player2.getPosition(),ScoreKeeper.player2);
-        players.set(ScoreKeeper.player3.getPosition(),ScoreKeeper.player3);
-        players.set(ScoreKeeper.player4.getPosition(),ScoreKeeper.player4);
-        PlayerAdapter adapter = new PlayerAdapter(this,players);
+        // Set up ArrayList Adapter
+        PlayerAdapter adapter = new PlayerAdapter(this,ScoreKeeper.players);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
     }
