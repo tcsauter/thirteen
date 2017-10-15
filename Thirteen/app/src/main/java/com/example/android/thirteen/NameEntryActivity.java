@@ -46,7 +46,7 @@ public class NameEntryActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter all player names to continue",
                             Toast.LENGTH_LONG).show();
                 } else {
-                    ScoreKeeper.putData("Names",names);
+                    ScoreKeeper.assignPlayers(names);
                     Intent beginIntent = new Intent(NameEntryActivity.this, ScoreSheetActivity.class);
                     startActivity(beginIntent);
                     finish();

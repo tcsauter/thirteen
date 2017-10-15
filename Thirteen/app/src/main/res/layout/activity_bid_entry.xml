@@ -1,104 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:theme="@style/TextViewHeaders"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/tvRound_bidEntry"
+            tools:text="Round 1"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:id="@+id/ivRound_bidEntry"
+            tools:src="@drawable/round_up"/>
         <ImageButton
+            android:id="@+id/bt_enter_bids"
+            style="@android:style/Widget.Holo.Light.ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/bt_enter_bids"
-            android:layout_gravity="end"
-            android:background="@color/colorPrimary"
-            android:src="@drawable/check"
+            android:layout_gravity="end|center_vertical"
             android:layout_margin="10dp"
-            style="@android:style/Widget.Holo.Light.ImageButton" />
+            android:background="@color/colorPrimary"
+            android:src="@drawable/check" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="18sp"
+        android:padding="4dp"
+        android:elevation="5dp"
+        android:id="@+id/tv_bidsRemaining"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        tools:text="1 Bids Remaining" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal">
-            <TextView
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/TextViewHeaders"
-                android:layout_gravity="center_vertical"
-                android:id="@+id/tvRound_bidEntry"
-                tools:text="Round 1"/>
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:id="@+id/ivRound_bidEntry"
-                tools:src="@drawable/round_up"/>
+                android:orientation="vertical"
+                android:id="@+id/bidSet_1"
+                android:layout_marginTop="2dp"
+                tools:background="@color/red">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/tv_bid_p1_name"
+                    android:text="@string/player1"
+                    android:theme="@style/TextViewLabels" />
+
+                <EditText
+                    android:id="@+id/et_p1_bid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextBid"
+                    tools:hint="Enter Bid" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/bidSet_2"
+                android:layout_marginTop="2dp"
+                tools:background="@color/yellow">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/tv_bid_p2_name"
+                    android:text="@string/player2"
+                    android:theme="@style/TextViewLabels" />
+
+                <EditText
+                    android:id="@+id/et_p2_bid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextBid" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/bidSet_3"
+                android:layout_marginTop="2dp"
+                tools:background="@color/green">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/tv_bid_p3_name"
+                    android:text="@string/player3"
+                    android:theme="@style/TextViewLabels" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextBid"
+                    android:id="@+id/et_p3_bid"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/bidSet_4"
+                android:layout_marginTop="2dp"
+                tools:background="@color/blue">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/tv_bid_p4_name"
+                    android:text="@string/player4"
+                    android:theme="@style/TextViewLabels" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextBid"
+                    android:id="@+id/et_p4_bid"/>
+
+            </LinearLayout>
+
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textSize="15sp"
-            android:padding="4dp"
-            android:id="@+id/tv_bidsRemaining"
-            android:background="@android:color/holo_red_dark"
-            android:textColor="@android:color/background_light"
-            tools:text="1 Bids Remaining" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id = "@+id/tv_bid_p1_name"
-            android:text="@string/player1"
-            android:theme="@style/TextViewLabels" />
-
-        <EditText
-            android:id="@+id/et_p1_bid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/EditTextBid"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id = "@+id/tv_bid_p2_name"
-            android:text="@string/player2"
-            android:theme="@style/TextViewLabels" />
-
-        <EditText
-            android:id="@+id/et_p2_bid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/EditTextBid" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id = "@+id/tv_bid_p3_name"
-            android:text="@string/player3"
-            android:theme="@style/TextViewLabels" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/EditTextBid"
-            android:id="@+id/et_p3_bid"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id = "@+id/tv_bid_p4_name"
-            android:text="@string/player4"
-            android:theme="@style/TextViewLabels" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/EditTextBid"
-            android:id="@+id/et_p4_bid"/>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

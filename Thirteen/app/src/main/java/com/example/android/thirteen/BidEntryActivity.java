@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,10 @@ public class BidEntryActivity extends AppCompatActivity {
     private TextView tvRound;
     private TextView tvBidsRemaining;
     private ImageView ivRound;
+    private LinearLayout bsLayout1;
+    private LinearLayout bsLayout2;
+    private LinearLayout bsLayout3;
+    private LinearLayout bsLayout4;
 
     // Player name array
     private int[] idArray =
@@ -53,6 +58,28 @@ public class BidEntryActivity extends AppCompatActivity {
         p2Bid = (EditText) findViewById(R.id.et_p2_bid);
         p3Bid = (EditText) findViewById(R.id.et_p3_bid);
         p4Bid = (EditText) findViewById(R.id.et_p4_bid);
+        bsLayout1 = (LinearLayout) findViewById(R.id.bidSet_1);
+        bsLayout2 = (LinearLayout) findViewById(R.id.bidSet_2);
+        bsLayout3 = (LinearLayout) findViewById(R.id.bidSet_3);
+        bsLayout4 = (LinearLayout) findViewById(R.id.bidSet_4);
+
+        //Set player bid entry backgrounds
+        LinearLayout[] layouts = {bsLayout1,bsLayout2,bsLayout3,bsLayout4};
+        int x = 0;
+        for (LinearLayout layout : layouts){
+            switch (ScoreKeeper.players.get(x).getOriginalPosition()){
+                case 0: layout.setBackgroundResource(R.color.red);
+                    break;
+                case 1: layout.setBackgroundResource(R.color.yellow);
+                    break;
+                case 2: layout.setBackgroundResource(R.color.green);
+                    break;
+                case 3: layout.setBackgroundResource(R.color.blue);
+                    break;
+                default: break;
+            }
+            x++;
+        }
 
         // Update bid counter as focus shifts off of entry fields
         p1Bid.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -127,10 +154,14 @@ public class BidEntryActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else {
                     ScoreKeeper.putData("Bids",bids);
+<<<<<<< HEAD
                     /*
                     Intent bidsIntent = new Intent(BidEntryActivity.this, ScoreSheetActivity.class);
                     startActivity(bidsIntent);
                     */
+=======
+                    ScoreKeeper.bidsTaken();
+>>>>>>> 4ec3633c820582b35ef26d263c18f119f8316ff6
                     finish();
                 }
             }
