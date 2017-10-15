@@ -1,5 +1,95 @@
-# thirteen_rep
+# Thirteen
 
-Rules of the Game:
+## Rules of the Game:
 
-Using the app:
+Thirteen is played in 25 rounds: up to 13, and back down to 1 (more on that later). The game must be played by exactly four people; there are no alternative rules for 2- or 3-player games.
+
+### Starting the Game
+
+At the beginning of the game, choose a dealer. As the game progresses from hand to hand, the role of the dealer will pass to the left. For the first hand, the dealer will deal out one card to each player. After the cards have been dealt out, the dealer puts the remaining stack in the middle of the table, and flips the top card, so all players can see it. The suit of that card will be referred to as "trump" for the rest of this hand. A card of the trump suit beats all other cards, except for another trump card with a higher value.
+
+### Bidding
+
+Play begins with the person immediately to the left of the dealer. But first, the players must bid. The player to the left of the dealer should look at their card(s), and determine how many books they can take with the card(s) they have. Once they've made a determination, they declare it to the scorekeeper, and the player to their left does the same thing, and so on.
+
+### Card Ranking
+
+Cards of the same suit progress in value from 2 through Ace, 2 being the lowest value, and Ace being the highest. The number cards are valued by the numbers on their faces, Jack outranks 10, Queen outranks Jack, and King outranks Queen.
+
+### Taking Books
+
+After all bids have been declared by the players and recorded by the scorekeeper, the player to the left of the dealer chooses a card to throw out to begin play. We refer to this card as the card that led. The player immediately to the left of the first player will try to outrank the card the first player threw out. At this point each player must follow the suit of the card that led, if at all possible. If a player cannot follow suit, they can throw out any card of any suit, but only a card of trump suit can outrank the leading suit (in other words, if you can't follow suit, and you can't or choose not to throw out trump, you will not take this book). After all players have thrown out a card, the group determines who threw out the highest ranking card, and that player takes the book.
+
+Assuming this is not the first or last hand, where each player only has one card, the next book will be led by the player who took the last book. Play will continue to the left of that player, in the same manner as before.
+
+### Scoring
+
+Once all books have been taken, the scorekeeper must score the round. Score is determined by two factors: a player's bid, and the number of books they took.
+
+#### Player Takes the Number Bid
+
+A player's score for a round is equal to 10 times the number that player bid, if the player took a number of books equalling the amount of their bid.
+
+#### Player Takes More Than Bid
+
+When a player takes more books than they bid, the excess books are called sandbags. Sandbags are worth 1 point each, so a player's total score for a round in which they took sandbags would be 10 times their bid, plus 1 for each sandbag.
+
+> Example
+>
+> David bids 2, but takes 3. David's score is 10 times his bid - 10 * 2 = 20 - plus 1 times the number of sandbags - 1 * 1 =1.
+> 20 + 1 = 21
+
+#### Player Takes Fewer Than Bid
+
+When a player takes fewer books than they bid, points are lost. The player's score for that round is equal to -10 times the number of books bid.
+
+> Example
+>
+> Charlie bids 3, but takes only 2. Charlie's score is -10 times the number he bid.
+> -10 * 3 = -30
+
+Don't get too bogged down in scoring - the Thirteen app takes care of that for you - I just wanted to cover how the game is scored, so people can play without the app, if they want. Currently the Thirteen app doesn't impose any penalties for sandbags, but a set of alternative scoring rules, which you can choose to use if you score without the app, say that a player will lose 100 points upon earning 10 sandbags.
+
+### Continuing Play from Round to Round
+
+As you move from one round to the next, two things happen: the player to the left of the previous dealer becomes the new dealer, and the amount of cards dealt to each player changes. For the first 13 rounds of the game, the number of cards dealt to each player increases by 1 each round, so all cards are dealt out on the 13th round. After the 13th round, the number of cards dealt to each player decreases by 1 each round, until the last round, when only 1 card is dealt to each player again.
+
+### So, What is Trump, When All Cards Are Dealt Out in Round 13?
+
+Round 13 of the game Thirteen is rather unique, in that there are no leftover cards by which to determine the trump suit. So what's trump? Spades. Spades are always trump in Round 13.
+
+## Using the app:
+
+The Thirteen app is a companion to the card game, Thirteen. The mission of the app is to aid you in connecting with your friends through the time-honored tradition of playing cards, and to save a little paper. This is simply a scorekeeping app, and nothing more. You cannot use this app to play Thirteen on your phone or tablet, either against a computer algorithm, or over a network with friends and strangers. You'll need exactly three friends who can manage to sit in the same room with you for an hour or two, and a standard deck of 52 playing cards, with the Jokers removed.
+
+### Intro Screen
+
+When you first open the app, you'll see a simple screen with the game logo and a button that says, "START GAME". You know what to do.
+
+### Setting Up the Players
+
+The next screen is where you'll declare your players. Player 1 should be the person immediately to the left of the first dealer, and Player 4 should be the first dealer. Make sure everyone is satisfied with the color they get (red, yellow, green, or blue), as that color will be associated with that player for the duration of the game. Once all player names have been entered, tap the red and black check mark in the top-right corner of the screen.
+
+### The Score Sheet
+
+The next screen is the Score Sheet. This is sort of the central hub of the game: you can see each player's name (and color), score, current bid, and total sandbags. Additionally, the current round is declared at the top of the screen. The round counter is designed to count up to 13, and then back down to 1, so the dealer should always deal to each player a number of cards equal to the round number shown at the top of this screen. The graphic to the right of the round counter is meant to indicate whether you're in the upswing (going from Round 1 to Round 13) or downswing (going from Round 13 back to Round 1) of the game: it climbs from left to right in the first half of the game, peaks on Round 13, and then falls from left to right in the second half of the game.
+
+### ENTER BIDS
+
+When the cards for a round have been dealt, and players are ready to declare their bids, tap the "ENTER BIDS" button. The Bid Entry screen has the round counter and graphic from the Score Sheet, in addition to a field to keep tabs on the number of bids remaining for the round. This is just informational: total bids can exceed the number of cards in each player's hand - after all, both you and another player may be confident that you can take all the books in this round - though no individual player's bid can exceed the number of cards in that player's hand. Once the bids have been entered for all players, tap the red and black check mark in the top-right corner of the screen. This will return you to the Score Sheet, where you'll see the Bid field for each player reflecting the bid that was just declared, and the "ENTER BIDS" button has been replaced by an "ENTER SCORES" button.
+
+### ENTER SCORES
+
+Once the round has been played to completion, tap the "ENTER SCORES" button. The Score Entry screen has the same round counter and graphic as seen on the Score Sheet and the Bid Entry screen. On this screen, you won't actually enter a player's score, but the number of books the player took in the round. The app will convert that information to the player's score. The hints in the data entry fields are used to remind the players of their bids, should they want to know that information at this point in the game. Once the number of books taken has been entered for all players, tap the red and black check mark in the top-right corner of the screen to return to the Score Sheet.
+
+### What happened?
+
+Once you've returned to the Score Sheet after entering the scores for a round, you'll notice it looks a little different. Since the role of dealer is passed off to the left, meaning the first person to bid and play is also passed to the left, the order of the players shown on each screen shifts down 1 position (except for the last player, who moves into the first position) each time a score entry is completed. This is most convenient for the score keeper, as the first data entry field to take focus on the Bid Entry and Score Entry screens will now be the actual first player from whom you need to take a bid or score.
+
+### Be Careful!
+
+At this time, there is no mechanism by which you can correct a player name, bid, or score after it has been entered and accepted via the red and black check mark. I'm working on that, and it will be included in a later version of the app. For now, make sure you've entered everything correctly before you confirm your entry.
+
+### Finally...
+
+Have fun!

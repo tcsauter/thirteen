@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,10 @@ public class ScoreEntryActivity extends AppCompatActivity {
     private EditText p4Score;
     private TextView tvRound;
     private ImageView ivRound;
+    private LinearLayout ssLayout1;
+    private LinearLayout ssLayout2;
+    private LinearLayout ssLayout3;
+    private LinearLayout ssLayout4;
 
     // Player name array
     private int[] idArray =
@@ -51,6 +56,28 @@ public class ScoreEntryActivity extends AppCompatActivity {
         p2Score = (EditText) findViewById(R.id.et_p2_score);
         p3Score = (EditText) findViewById(R.id.et_p3_score);
         p4Score = (EditText) findViewById(R.id.et_p4_score);
+        ssLayout1 = (LinearLayout) findViewById(R.id.scoreSet_1);
+        ssLayout2 = (LinearLayout) findViewById(R.id.scoreSet_2);
+        ssLayout3 = (LinearLayout) findViewById(R.id.scoreSet_3);
+        ssLayout4 = (LinearLayout) findViewById(R.id.scoreSet_4);
+
+        //Set player score entry backgrounds
+        LinearLayout[] layouts = {ssLayout1,ssLayout2,ssLayout3,ssLayout4};
+        int x = 0;
+        for (LinearLayout layout : layouts){
+            switch (ScoreKeeper.players.get(x).getOriginalPosition()){
+                case 0: layout.setBackgroundResource(R.color.red);
+                    break;
+                case 1: layout.setBackgroundResource(R.color.yellow);
+                    break;
+                case 2: layout.setBackgroundResource(R.color.green);
+                    break;
+                case 3: layout.setBackgroundResource(R.color.blue);
+                    break;
+                default: break;
+            }
+            x++;
+        }
 
         // Set EditText hints to show bids by player
         String[] bids = ScoreKeeper.getBids();
@@ -96,16 +123,13 @@ public class ScoreEntryActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else {
                     ScoreKeeper.putData("Scores",scores);
-                    Intent beginIntent = new Intent(ScoreEntryActivity.this, ScoreSheetActivity.class);
-                    startActivity(beginIntent);
+                    ScoreKeeper.scoresTaken();
+                    ScoreKeeper.incrementRound();
+                    ScoreKeeper.rotatePlayers();
+                    finish();
                 }
             }
         });
-    }
-
-    protected void onPause(){
-        super.onPause();
-        ScoreKeeper.incrementRound();
     }
 
     private void setRound() {
