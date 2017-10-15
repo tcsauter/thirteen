@@ -123,31 +123,15 @@ public class ScoreEntryActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else {
                     ScoreKeeper.putData("Scores",scores);
-<<<<<<< HEAD
-                    /*
-                    Intent beginIntent = new Intent(ScoreEntryActivity.this, ScoreSheetActivity.class);
-                    startActivity(beginIntent);
-                    */
-=======
                     ScoreKeeper.scoresTaken();
                     ScoreKeeper.incrementRound();
                     ScoreKeeper.rotatePlayers();
->>>>>>> 4ec3633c820582b35ef26d263c18f119f8316ff6
                     finish();
                 }
             }
         });
     }
 
-<<<<<<< HEAD
-    protected void onPause(){
-        super.onPause();
-        ScoreKeeper.incrementRound();
-        ScoreKeeper.rotatePlayers();
-    }
-
-=======
->>>>>>> 4ec3633c820582b35ef26d263c18f119f8316ff6
     private void setRound() {
         String[] round = new String[2];
         round = ScoreKeeper.getRound();

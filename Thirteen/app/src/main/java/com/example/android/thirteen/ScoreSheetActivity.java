@@ -20,12 +20,6 @@ public class ScoreSheetActivity extends AppCompatActivity {
     private TextView tvRound;
     private ImageView ivRound;
 
-<<<<<<< HEAD
-    // Array for player information
-    private TextView[][] Players = new TextView[4][4];
-
-=======
->>>>>>> 4ec3633c820582b35ef26d263c18f119f8316ff6
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,19 +29,6 @@ public class ScoreSheetActivity extends AppCompatActivity {
         tvRound = (TextView) findViewById(R.id.tvRound_scoreSheet);
         ivRound = (ImageView) findViewById(R.id.ivRound_scoreSheet);
 
-<<<<<<< HEAD
-        // Get names and add to screen
-        String[] names = new String[4];
-        names = ScoreKeeper.getNames();
-        for (int i=0;i<names.length;i++){
-            Players[0][i].setText(names[i]);
-        }
-
-        // Get round and add to screen
-        setRound();
-
-=======
->>>>>>> 4ec3633c820582b35ef26d263c18f119f8316ff6
         // Bind Button variables to buttons
         btBids = (Button) findViewById(R.id.bt_Bids);
         btScores = (Button) findViewById(R.id.bt_Scores);
@@ -109,14 +90,11 @@ public class ScoreSheetActivity extends AppCompatActivity {
         }
         // Set current round
         setRound();
-<<<<<<< HEAD
-=======
 
         // Set up ArrayList Adapter
         PlayerAdapter adapter = new PlayerAdapter(this,ScoreKeeper.players);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
->>>>>>> 4ec3633c820582b35ef26d263c18f119f8316ff6
     }
 
     private void setRound() {

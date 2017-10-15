@@ -154,14 +154,7 @@ public class BidEntryActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else {
                     ScoreKeeper.putData("Bids",bids);
-<<<<<<< HEAD
-                    /*
-                    Intent bidsIntent = new Intent(BidEntryActivity.this, ScoreSheetActivity.class);
-                    startActivity(bidsIntent);
-                    */
-=======
                     ScoreKeeper.bidsTaken();
->>>>>>> 4ec3633c820582b35ef26d263c18f119f8316ff6
                     finish();
                 }
             }

@@ -23,27 +23,6 @@ public class ScoreKeeper {
     private static boolean bidSwitch = false;
     private static boolean scoreSwitch = true;
 
-<<<<<<< HEAD
-    public static void initialize(){
-        for (int i=0;i<25;i++){
-            for (int j=0;j<4;j++){
-                if (i<3){
-                    mathSheet[i][j] = 0;
-                }
-                if (i<4){
-                    if (i == 0){
-                        scoreCardString[i][j] = "";
-                    } else {
-                        scoreCardString[i][j] = "0";
-                    }
-                }
-                scoreHistory[i][j] = 0;
-            }
-        }
-        round = 0;
-        bidSwitch = false;
-        scoreSwitch = true;
-=======
     public static void assignPlayers(String[] names){
         player1 = new Player(0, names[0]);
         player2 = new Player(1, names[1]);
@@ -78,7 +57,6 @@ public class ScoreKeeper {
             scoreCardString[2][playerPosition] = Integer.toString(player.getScore());
             scoreCardString[3][playerPosition] = Integer.toString(player.getSandbags());
         }
->>>>>>> 4ec3633c820582b35ef26d263c18f119f8316ff6
     }
 
     public static void bidsTaken(){
@@ -221,49 +199,6 @@ public class ScoreKeeper {
     }
 
     public static void rotatePlayers(){
-<<<<<<< HEAD
-        String[][] scoreCardStringHold = new String[4][4];
-        int[][] scoreHistoryHold = new int[25][4];
-        int[][] mathSheetHold = new int[3][4];
-
-        for (int i=0;i<25;i++){
-            for (int j=0;j<4;j++){
-                if (i<3){
-                    mathSheetHold[i][j] = mathSheet[i][j];
-                    mathSheet[i][j] = 0;
-                }
-                if (i<4){
-                    scoreCardStringHold[i][j] = scoreCardString[i][j];
-                    scoreCardString[i][j] = "";
-                }
-                scoreHistoryHold[i][j] = scoreHistory[i][j];
-                scoreHistory[i][j] = 0;
-            }
-        }
-        for (int i=0;i<25;i++){
-            for (int j=0;j<4;j++){
-                if (i<3){
-                    if (j<3){
-                        mathSheet[i][j+1] = mathSheetHold[i][j];
-                    } else {
-                        mathSheet[i][0] = mathSheetHold[i][j];
-                    }
-                }
-                if (i<4){
-                    if (j<3){
-                        scoreCardString[i][j+1] = scoreCardStringHold[i][j];
-                    } else {
-                        scoreCardString[i][0] = scoreCardStringHold[i][j];
-                    }
-                }
-                if (j<3){
-                    scoreHistory[i][j+1] = scoreHistoryHold[i][j];
-                } else {
-                    scoreHistory[i][0] = scoreHistoryHold[i][j];
-                }
-            }
-        }
-=======
         Player[] playerList = sortPlayerArray();
         for (Player player : playerList){
             if (player.getPosition()==3){
@@ -277,6 +212,5 @@ public class ScoreKeeper {
         players.set(player3.getPosition(),ScoreKeeper.player3);
         players.set(player4.getPosition(),ScoreKeeper.player4);
         loadScoreCard();
->>>>>>> 4ec3633c820582b35ef26d263c18f119f8316ff6
     }
 }
