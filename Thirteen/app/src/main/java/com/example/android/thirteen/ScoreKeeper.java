@@ -28,6 +28,7 @@ public class ScoreKeeper {
         player2 = new Player(1, names[1]);
         player3 = new Player(2, names[2]);
         player4 = new Player(3, names[3]);
+        players.clear();
         players.add(player1);
         players.add(player2);
         players.add(player3);
