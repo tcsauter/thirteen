@@ -126,6 +126,7 @@ public class ScoreEntryActivity extends AppCompatActivity {
                     ScoreKeeper.scoresTaken();
                     ScoreKeeper.incrementRound();
                     ScoreKeeper.rotatePlayers();
+                    ScoreKeeper.rankPlayers();
                     finish();
                 }
             }

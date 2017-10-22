@@ -68,11 +68,19 @@ When you first open the app, you'll see a simple screen with the game logo and a
 
 ### Setting Up the Players
 
-The next screen is where you'll declare your players. Player 1 should be the person immediately to the left of the first dealer, and Player 4 should be the first dealer. Make sure everyone is satisfied with the color they get (red, yellow, green, or blue), as that color will be associated with that player for the duration of the game. Once all player names have been entered, tap the red and black check mark in the top-right corner of the screen.
+The next screen is where you'll declare your players. Player 1 should be the person immediately to the left of the first dealer, and Player 4 should be the first dealer. Make sure everyone is satisfied with the color they get (red, yellow, green, or blue), as that color will be associated with that player for the duration of the game.
+
+The app offers the option of having a player's face appear next to their stats on the Score Sheet. To take a photo of a player, tap the camera icon for that player. A dialog will pop up asking you to show your happy face. Tap the box below the message to launch your Camera app and take a photo. When you are returned to the Thirteen app after taking your photo, you'll see a thumbnail of your first photo, and a message asking you to show your sad face. Tap the empty box below the message to launch the camera app again, and take a sad face photo. When you are returned to the Thirteen app, you'll see thumbnails of both of your previous photos, and a new message asking you to show your game face. Tap the empty box below the message to take a photo of your game face. When you are returned to the Thirteen app, you'll see all three of your photo thumbnails. You can retake any photo by touching it, or click OK to save the photos and continue.
+
+Once all player names have been entered, and photos taken, tap the red and black check mark in the top-right corner of the screen.
 
 ### The Score Sheet
 
-The next screen is the Score Sheet. This is sort of the central hub of the game: you can see each player's name (and color), score, current bid, and total sandbags. Additionally, the current round is declared at the top of the screen. The round counter is designed to count up to 13, and then back down to 1, so the dealer should always deal to each player a number of cards equal to the round number shown at the top of this screen. The graphic to the right of the round counter is meant to indicate whether you're in the upswing (going from Round 1 to Round 13) or downswing (going from Round 13 back to Round 1) of the game: it climbs from left to right in the first half of the game, peaks on Round 13, and then falls from left to right in the second half of the game.
+The next screen is the Score Sheet. This is sort of the central hub of the game: you can see each player's name (and color), score, current bid, total sandbags, and that player's photo (more on that in a minute). Additionally, the current round is declared at the top of the screen. The round counter is designed to count up to 13, and then back down to 1, so the dealer should always deal to each player a number of cards equal to the round number shown at the top of this screen. The graphic to the right of the round counter is meant to indicate whether you're in the upswing (going from Round 1 to Round 13) or downswing (going from Round 13 back to Round 1) of the game: it climbs from left to right in the first half of the game, peaks on Round 13, and then falls from left to right in the second half of the game.
+
+### The Photo
+
+You only see one photo on the Score Sheet, so why did the app ask you to take three? There's a decision engine in the app that chooses which photo to use on the Score Sheet. When you're winning - or tied for first place - your happy face photo will be used. When you're in last place, your sad face photo will be used. When you're in neither first nor last place, your game face photo is used.
 
 ### ENTER BIDS
 

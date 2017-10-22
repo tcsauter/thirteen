@@ -1,6 +1,8 @@
 package com.example.android.thirteen;
 
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 
 /**
@@ -23,11 +25,35 @@ public class ScoreKeeper {
     private static boolean bidSwitch = false;
     private static boolean scoreSwitch = true;
 
-    public static void assignPlayers(String[] names){
-        player1 = new Player(0, names[0]);
-        player2 = new Player(1, names[1]);
-        player3 = new Player(2, names[2]);
-        player4 = new Player(3, names[3]);
+    // Photo Arrays
+    private static Bitmap[] player1Photos = new Bitmap[3];
+    private static Bitmap[] player2Photos = new Bitmap[3];
+    private static Bitmap[] player3Photos = new Bitmap[3];
+    private static Bitmap[] player4Photos = new Bitmap[3];
+
+    public static void setPlayerPhotos(int position, Bitmap[] photos){
+        switch (position){
+            case 1:
+                player1Photos = photos;
+                break;
+            case 2:
+                player2Photos = photos;
+                break;
+            case 3:
+                player3Photos = photos;
+                break;
+            case 4:
+                player4Photos = photos;
+                break;
+            default: break;
+        }
+    }
+
+    public static void assignPlayers(String[] names, ArrayList<Bitmap> photos){
+        player1 = new Player(0, names[0],player1Photos);
+        player2 = new Player(1, names[1],player2Photos);
+        player3 = new Player(2, names[2],player3Photos);
+        player4 = new Player(3, names[3],player4Photos);
         players.clear();
         players.add(player1);
         players.add(player2);
@@ -213,5 +239,50 @@ public class ScoreKeeper {
         players.set(player3.getPosition(),ScoreKeeper.player3);
         players.set(player4.getPosition(),ScoreKeeper.player4);
         loadScoreCard();
+    }
+
+    public static void rankPlayers(){
+        int p1Score = player1.getScore();
+        int p2Score = player2.getScore();
+        int p3Score = player3.getScore();
+        int p4Score = player4.getScore();
+        int p1Rank = 1;
+        int p2Rank = 1;
+        int p3Rank = 1;
+        int p4Rank = 1;
+        if (p1Score > p2Score){
+            p2Rank++;
+        } else if (p1Score < p2Score){
+            p1Rank++;
+        }
+        if (p1Score > p3Score){
+            p3Rank++;
+        } else if (p1Score < p3Score){
+            p1Rank++;
+        }
+        if (p1Score > p4Score){
+            p4Rank++;
+        } else if (p1Score < p4Score){
+            p1Rank++;
+        }
+        if (p2Score > p3Score){
+            p3Rank++;
+        } else if (p2Score < p3Score){
+            p2Rank++;
+        }
+        if (p2Score > p4Score){
+            p4Rank++;
+        } else if (p2Score < p4Score){
+            p2Rank++;
+        }
+        if (p3Score > p4Score){
+            p4Rank++;
+        } else if (p3Score < p4Score){
+            p3Rank++;
+        }
+        player1.setRank(p1Rank);
+        player2.setRank(p2Rank);
+        player3.setRank(p3Rank);
+        player4.setRank(p4Rank);
     }
 }

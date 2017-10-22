@@ -1,5 +1,8 @@
 package com.example.android.thirteen;
 
+import android.graphics.Bitmap;
+import android.support.annotation.Nullable;
+
 import java.util.ArrayList;
 
 /**
@@ -10,10 +13,14 @@ class Player {
     private int mPosition;
     private int mOrigPosition;
     private String mName;
+    private Bitmap mHappyFace;
+    private Bitmap mSadFace;
+    private Bitmap mGameFace;
     private int mCurBid;
     private int mCurTake;
     private int mSandbags;
     private int mTotScore;
+    private int mCurRank;
 
     private ArrayList<Integer> mBidHistory;
     private ArrayList<Integer> mTakeHistory;
@@ -24,27 +31,46 @@ class Player {
         mPosition = position;
         mOrigPosition = position;
         mName = null;
+        mHappyFace = null;
+        mSadFace = null;
+        mGameFace = null;
         mCurBid = 0;
         mCurTake = 0;
         mSandbags = 0;
         mTotScore = 0;
+        mCurRank = 1;
         mBidHistory = new ArrayList<Integer>(25);
         mTakeHistory = new ArrayList<Integer>(25);
         mScoreHistory = new ArrayList<Integer>(25);
     }
 
-    // Constructor that declares position and name up front
-    public Player(int position, String name){
+    // Constructor that declares position, name and photo up front
+    public Player(int position, String name, @Nullable Bitmap[] photos){
         mPosition = position;
         mOrigPosition = position;
         mName = name;
+        mHappyFace = photos[0];
+        mSadFace = photos[1];
+        mGameFace = photos[2];
         mCurBid = 0;
         mCurTake = 0;
         mSandbags = 0;
         mTotScore = 0;
+        mCurRank = 1;
         mBidHistory = new ArrayList<Integer>(25);
         mTakeHistory = new ArrayList<Integer>(25);
         mScoreHistory = new ArrayList<Integer>(25);
+    }
+    public Bitmap getHappyFace() {
+        return mHappyFace;
+    }
+
+    public Bitmap getSadFace(){
+        return mSadFace;
+    }
+
+    public Bitmap getGameFace(){
+        return mGameFace;
     }
 
     public void setBid(int bid){
@@ -108,5 +134,13 @@ class Player {
 
     public int getPosition(){
         return mPosition;
+    }
+
+    public void setRank(int rank){
+        mCurRank = rank;
+    }
+
+    public int getRank(){
+        return mCurRank;
     }
 }

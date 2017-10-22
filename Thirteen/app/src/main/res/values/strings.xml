@@ -13,5 +13,9 @@
     <string name="lblSandbags">Sandbags</string>
     <string name="btBids">ENTER BIDS</string>
     <string name="btScores">ENTER SCORES</string>
+    <string name="happyFace">Show us your happy face. :D \nClick below to take a photo.</string>
+    <string name="sadFace">Show us your sad face. :( \nClick below to take a photo.</string>
+    <string name="gameFace">Show us your game face. >:o \nClick below to take a photo.</string>
+    <string name="gfAllDone">That\'s it! Touch any photo to retake it, or click OK to continue.</string>
 
 </resources>

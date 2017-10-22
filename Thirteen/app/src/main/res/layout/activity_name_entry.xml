@@ -39,11 +39,29 @@
                 android:background="@color/red"
                 android:layout_marginTop="2dp">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/player1"
-                    android:theme="@style/TextViewLabels" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/player1"
+                        android:theme="@style/TextViewLabels" />
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/camera_ic"
+                        android:padding="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/iv_GameFace_1"/>
+
+                </RelativeLayout>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -60,11 +78,29 @@
                 android:background="@color/yellow"
                 android:layout_marginTop="2dp">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/player2"
-                    android:theme="@style/TextViewLabels" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/player2"
+                        android:theme="@style/TextViewLabels" />
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/camera_ic"
+                        android:padding="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/iv_GameFace_2"/>
+
+                </RelativeLayout>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -81,11 +117,29 @@
                 android:background="@color/green"
                 android:layout_marginTop="2dp">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/player3"
-                    android:theme="@style/TextViewLabels" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/player3"
+                        android:theme="@style/TextViewLabels" />
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/camera_ic"
+                        android:padding="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/iv_GameFace_3"/>
+
+                </RelativeLayout>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -102,11 +156,29 @@
                 android:background="@color/blue"
                 android:layout_marginTop="2dp">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/player4"
-                    android:theme="@style/TextViewLabels" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/player4"
+                        android:theme="@style/TextViewLabels" />
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/camera_ic"
+                        android:padding="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/iv_GameFace_4"/>
+
+                </RelativeLayout>
 
                 <EditText
                     android:layout_width="match_parent"

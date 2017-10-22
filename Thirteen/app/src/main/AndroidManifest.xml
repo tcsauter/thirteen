@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.thirteen">
 
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/thirteen_icon"
@@ -16,17 +20,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BidEntryActivity"
+        <activity
+            android:name=".BidEntryActivity"
             android:label="@string/lblBid"
-            android:parentActivityName=".ScoreSheetActivity"/>
-        <activity android:name=".NameEntryActivity"
+            android:parentActivityName=".ScoreSheetActivity" />
+        <activity
+            android:name=".NameEntryActivity"
             android:label="@string/lblName"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".ScoreEntryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ScoreEntryActivity"
             android:label="@string/lblScore"
-            android:parentActivityName=".ScoreSheetActivity"/>
-        <activity android:name=".ScoreSheetActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".ScoreSheetActivity" />
+        <activity
+            android:name=".ScoreSheetActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".GameFaceActivity"
+            android:parentActivityName=".NameEntryActivity"
+            android:theme="@style/Dialog"
+            android:label="Game Face"/>
     </application>
 
 </manifest>

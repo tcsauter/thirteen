@@ -1,10 +1,12 @@
 package com.example.android.thirteen;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,6 +30,15 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         }
 
         Player currentPlayer = getItem(position);
+
+        ImageView ivPlayerPhoto = (ImageView) listItemView.findViewById(R.id.iv_player_photo);
+        Bitmap playerPhoto = selectPhoto(currentPlayer);
+        if (playerPhoto == null){
+            ivPlayerPhoto.setVisibility(View.INVISIBLE);
+        } else {
+            ivPlayerPhoto.setVisibility(View.VISIBLE);
+            ivPlayerPhoto.setImageBitmap(playerPhoto);
+        }
 
         TextView tvName = (TextView) listItemView.findViewById(R.id.name);
         TextView tvBid = (TextView) listItemView.findViewById(R.id.bid);
@@ -53,5 +64,22 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
 
 
         return listItemView;
+    }
+
+    private Bitmap selectPhoto(Player player){
+        int rank = player.getRank();
+        Bitmap photo;
+        switch (rank){
+            case 1:
+                photo = player.getHappyFace();
+                break;
+            case 4:
+                photo = player.getSadFace();
+                break;
+            default:
+                photo = player.getGameFace();
+                break;
+        }
+        return photo;
     }
 }
