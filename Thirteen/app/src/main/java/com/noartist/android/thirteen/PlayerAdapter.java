@@ -1,4 +1,4 @@
-package com.example.android.thirteen;
+package com.noartist.android.thirteen;
 
 import android.app.Activity;
 import android.view.LayoutInflater;

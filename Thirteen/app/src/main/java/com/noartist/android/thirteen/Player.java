@@ -1,4 +1,4 @@
-package com.example.android.thirteen;
+package com.noartist.android.thirteen;
 
 import java.util.ArrayList;
 

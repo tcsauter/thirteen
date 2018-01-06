@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.thirteen.MainActivity"
+    tools:context="com.noartist.android.thirteen.MainActivity"
     android:weightSum="1">
 
     <ImageView

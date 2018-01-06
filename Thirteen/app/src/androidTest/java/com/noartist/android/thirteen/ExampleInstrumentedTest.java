@@ -1,4 +1,4 @@
-package com.example.android.thirteen;
+package com.noartist.android.thirteen;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.android.thirteen", appContext.getPackageName());
+        assertEquals("com.noartist.android.thirteen", appContext.getPackageName());
     }
 }

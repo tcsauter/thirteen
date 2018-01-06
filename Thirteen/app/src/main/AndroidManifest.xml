@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.thirteen">
+    package="com.noartist.android.thirteen">
 
     <application
         android:allowBackup="true"
@@ -9,24 +9,24 @@
         android:roundIcon="@mipmap/thirteen_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.noartist.android.thirteen.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BidEntryActivity"
+        <activity android:name="com.noartist.android.thirteen.BidEntryActivity"
             android:label="@string/lblBid"
-            android:parentActivityName=".ScoreSheetActivity"/>
-        <activity android:name=".NameEntryActivity"
+            android:parentActivityName="com.noartist.android.thirteen.ScoreSheetActivity"/>
+        <activity android:name="com.noartist.android.thirteen.NameEntryActivity"
             android:label="@string/lblName"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".ScoreEntryActivity"
+            android:parentActivityName="com.noartist.android.thirteen.MainActivity"/>
+        <activity android:name="com.noartist.android.thirteen.ScoreEntryActivity"
             android:label="@string/lblScore"
-            android:parentActivityName=".ScoreSheetActivity"/>
-        <activity android:name=".ScoreSheetActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName="com.noartist.android.thirteen.ScoreSheetActivity"/>
+        <activity android:name="com.noartist.android.thirteen.ScoreSheetActivity"
+            android:parentActivityName="com.noartist.android.thirteen.MainActivity"/>
     </application>
 
 </manifest>

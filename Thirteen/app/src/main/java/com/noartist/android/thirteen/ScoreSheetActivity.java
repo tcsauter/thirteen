@@ -1,4 +1,4 @@
-package com.example.android.thirteen;
+package com.noartist.android.thirteen;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class ScoreSheetActivity extends AppCompatActivity {
     // Define variables for access to buttons

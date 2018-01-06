@@ -1,6 +1,5 @@
-package com.example.android.thirteen;
+package com.noartist.android.thirteen;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;

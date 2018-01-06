@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:id="@+id/list"
-            tools:context="com.example.android.thirteen.ScoreSheetActivity"/>
+            tools:context="com.noartist.android.thirteen.ScoreSheetActivity"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

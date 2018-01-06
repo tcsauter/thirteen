@@ -7,7 +7,7 @@
     android:paddingEnd="16dp"
     android:id="@+id/sc_list_item"
     tools:background="@color/yellow"
-    tools:context="com.example.android.thirteen.ScoreSheetActivity">
+    tools:context="com.noartist.android.thirteen.ScoreSheetActivity">
 
     <TextView
         android:layout_width="0dp"
