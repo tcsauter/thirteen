@@ -202,10 +202,10 @@ public class ScoreKeeper {
     public static void rotatePlayers(){
         Player[] playerList = sortPlayerArray();
         for (Player player : playerList){
-            if (player.getPosition()==3){
-                player.changePosition(-3);
+            if (player.getPosition()==0){
+                player.changePosition(3);
             } else {
-                player.changePosition(1);
+                player.changePosition(-1);
             }
         }
         players.set(player1.getPosition(),ScoreKeeper.player1);
