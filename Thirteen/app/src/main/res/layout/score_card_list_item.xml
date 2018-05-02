@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="@dimen/list_item_height"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
     android:id="@+id/sc_list_item"
@@ -10,20 +10,18 @@
     tools:context="com.noartist.android.thirteen.ScoreSheetActivity">
 
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:theme="@style/TextViewScoreBody"
         android:id="@+id/name"
         tools:text="Travis" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="@dimen/list_item_height"
-        android:layout_weight="3"
-        android:orientation="vertical">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,7 +85,6 @@
 
         </LinearLayout>
 
-    </LinearLayout>
-
+    <!--</LinearLayout>-->
 
 </LinearLayout>
