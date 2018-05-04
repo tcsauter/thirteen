@@ -18,73 +18,66 @@
         android:id="@+id/name"
         tools:text="Travis" />
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="vertical">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="top"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="top"
-            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lblScore"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:theme="@style/TextViewScoreBody" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lblScore"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:theme="@style/TextViewScoreBody" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:theme="@style/TextViewScoreBody"
-                android:id="@+id/score"
-                tools:text="150" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:theme="@style/TextViewScoreBody"
+            android:id="@+id/score"
+            tools:text="150" />
 
 
-        </LinearLayout>
+    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="top"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="top"
+        android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextViewScoreBody"
-                android:text="@string/lblBid"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextViewScoreBody"
+            android:text="@string/lblBid"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextViewScoreBody"
-                android:id="@+id/bid"
-                tools:text="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextViewScoreBody"
+            android:id="@+id/bid"
+            tools:text="0"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextViewScoreBody"
-                android:text="@string/lblSandbags"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextViewScoreBody"
+            android:text="@string/lblSandbags"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/TextViewScoreBody"
-                android:id="@+id/sandbags"
-                tools:text="2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextViewScoreBody"
+            android:id="@+id/sandbags"
+            tools:text="2"/>
 
-        </LinearLayout>
-
-    <!--</LinearLayout>-->
+    </LinearLayout>
 
 </LinearLayout>
