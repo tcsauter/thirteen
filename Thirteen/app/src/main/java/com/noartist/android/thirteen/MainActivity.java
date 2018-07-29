@@ -14,6 +14,27 @@ public class MainActivity extends AppCompatActivity {
 
         // Define and initialize the Start button
         Button start = (Button) findViewById(R.id.bt_begin);
+        Button rules = (Button) findViewById(R.id.bt_rules);
+        Button help = (Button) findViewById(R.id.bt_help);
+
+        // Set up the Rules button listener
+        rules.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent rulesIntent = new Intent(MainActivity.this, RulesActivity.class);
+                rulesIntent.putExtra("EXTRA_BUTTON","rules");
+                startActivity(rulesIntent);
+            }
+        });
+
+        help.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent rulesIntent = new Intent(MainActivity.this, RulesActivity.class);
+                rulesIntent.putExtra("EXTRA_BUTTON","help");
+                startActivity(rulesIntent);
+            }
+        });
 
         // Set up the Start button click listener
         start.setOnClickListener(new View.OnClickListener(){

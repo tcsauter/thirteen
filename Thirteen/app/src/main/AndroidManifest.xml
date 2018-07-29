@@ -9,24 +9,32 @@
         android:roundIcon="@mipmap/thirteen_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.noartist.android.thirteen.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.noartist.android.thirteen.BidEntryActivity"
+        <activity
+            android:name=".BidEntryActivity"
             android:label="@string/lblBid"
-            android:parentActivityName="com.noartist.android.thirteen.ScoreSheetActivity"/>
-        <activity android:name="com.noartist.android.thirteen.NameEntryActivity"
+            android:parentActivityName=".ScoreSheetActivity" />
+        <activity
+            android:name=".NameEntryActivity"
             android:label="@string/lblName"
-            android:parentActivityName="com.noartist.android.thirteen.MainActivity"/>
-        <activity android:name="com.noartist.android.thirteen.ScoreEntryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ScoreEntryActivity"
             android:label="@string/lblScore"
-            android:parentActivityName="com.noartist.android.thirteen.ScoreSheetActivity"/>
-        <activity android:name="com.noartist.android.thirteen.ScoreSheetActivity"
-            android:parentActivityName="com.noartist.android.thirteen.MainActivity"/>
+            android:parentActivityName=".ScoreSheetActivity" />
+        <activity
+            android:name=".ScoreSheetActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RulesActivity"
+            android:label="@string/title_activity_rules"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/toolbar_menu_rules"
+        android:title="@string/title_activity_rules"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/toolbar_menu_help"
+        android:title="@string/app_help"
+        app:showAsAction="never" />
+
+</menu>
