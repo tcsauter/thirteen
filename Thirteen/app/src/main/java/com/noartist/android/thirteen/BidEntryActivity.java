@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,15 +19,16 @@ public class BidEntryActivity extends AppCompatActivity {
     private TextView tvRound;
     private TextView tvBidsRemaining;
     private ImageView ivRound;
-    private LinearLayout bsLayout1;
-    private LinearLayout bsLayout2;
-    private LinearLayout bsLayout3;
-    private LinearLayout bsLayout4;
 
     // Player name array
     private int[] idArray =
             {R.id.tv_bid_p1_name, R.id.tv_bid_p2_name, R.id.tv_bid_p3_name, R.id.tv_bid_p4_name};
     private TextView[] nameArray = new TextView[4];
+
+    //Player Colors
+    private int[] idArray2 =
+            {R.id.bidset_1, R.id.bidset_2, R.id.bidset_3, R.id.bidset_4};
+    private ImageView[] colorArray = new ImageView[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,47 +36,27 @@ public class BidEntryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bid_entry);
 
         // Set Round on screen
-        tvRound = (TextView) findViewById(R.id.tvRound_bidEntry);
-        ivRound = (ImageView) findViewById(R.id.ivRound_bidEntry);
+        tvRound = findViewById(R.id.tvRound_bidEntry);
+        ivRound = findViewById(R.id.ivRound_bidEntry);
         setRound();
-        tvBidsRemaining = (TextView) findViewById(R.id.tv_bidsRemaining);
-
-        // Set Player names on screen
-        for (int i=0;i<idArray.length;i++){
-            nameArray[i] = (TextView) findViewById(idArray[i]);
-        }
-        String[] names = new String[4];
-        names = ScoreKeeper.getNames();
-        for (int i=0;i<names.length;i++){
-            nameArray[i].setText(names[i]);
-        }
+        tvBidsRemaining = findViewById(R.id.tv_bidsRemaining);
 
         // Define and initialize all interactive views
-        enterBids = (ImageButton) findViewById(R.id.bt_enter_bids);
-        p1Bid = (EditText) findViewById(R.id.et_p1_bid);
-        p2Bid = (EditText) findViewById(R.id.et_p2_bid);
-        p3Bid = (EditText) findViewById(R.id.et_p3_bid);
-        p4Bid = (EditText) findViewById(R.id.et_p4_bid);
-        bsLayout1 = (LinearLayout) findViewById(R.id.bidSet_1);
-        bsLayout2 = (LinearLayout) findViewById(R.id.bidSet_2);
-        bsLayout3 = (LinearLayout) findViewById(R.id.bidSet_3);
-        bsLayout4 = (LinearLayout) findViewById(R.id.bidSet_4);
+        for (int i=0;i<idArray.length;i++){
+            nameArray[i] = findViewById(idArray[i]);
+            colorArray[i] = findViewById(idArray2[i]);
+        }
+        enterBids = findViewById(R.id.bt_enter_bids);
+        p1Bid = findViewById(R.id.et_p1_bid);
+        p2Bid = findViewById(R.id.et_p2_bid);
+        p3Bid = findViewById(R.id.et_p3_bid);
+        p4Bid = findViewById(R.id.et_p4_bid);
 
-        //Set player bid entry backgrounds
-        LinearLayout[] layouts = {bsLayout1,bsLayout2,bsLayout3,bsLayout4};
+        Player[] players = ScoreKeeper.sortPlayerArray();
         int x = 0;
-        for (LinearLayout layout : layouts){
-            switch (ScoreKeeper.players.get(x).getOriginalPosition()){
-                case 0: layout.setBackgroundResource(R.color.red);
-                    break;
-                case 1: layout.setBackgroundResource(R.color.yellow);
-                    break;
-                case 2: layout.setBackgroundResource(R.color.green);
-                    break;
-                case 3: layout.setBackgroundResource(R.color.blue);
-                    break;
-                default: break;
-            }
+        for (Player player : players){
+            nameArray[x].setText(player.getName());
+            colorArray[x].setBackgroundResource(player.getColor());
             x++;
         }
 

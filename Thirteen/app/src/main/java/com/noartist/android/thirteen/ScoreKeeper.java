@@ -96,7 +96,7 @@ public class ScoreKeeper {
         return roundString;
     }
 
-    private static Player[] sortPlayerArray(){
+    public static Player[] sortPlayerArray(){
         Player[] playerList = new Player[4];
         playerList[player1.getPosition()] = player1;
         playerList[player2.getPosition()] = player2;
@@ -184,7 +184,7 @@ public class ScoreKeeper {
                 }
             }
         }
-        return null;
+        return "good";
     }
 
     public static Boolean isValidInteger(String value) {

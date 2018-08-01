@@ -25,11 +25,11 @@ public class NameEntryActivity extends AppCompatActivity {
         ScoreKeeper.initialize();
 
         // Define and initialize all interactive views
-        enterNames = (ImageButton) findViewById(R.id.bt_enter_names);
-        p1Name = (EditText) findViewById(R.id.et_p1_name);
-        p2Name = (EditText) findViewById(R.id.et_p2_name);
-        p3Name = (EditText) findViewById(R.id.et_p3_name);
-        p4Name = (EditText) findViewById(R.id.et_p4_name);
+        enterNames = findViewById(R.id.bt_enter_names);
+        p1Name = findViewById(R.id.et_p1_name);
+        p2Name = findViewById(R.id.et_p2_name);
+        p3Name = findViewById(R.id.et_p3_name);
+        p4Name = findViewById(R.id.et_p4_name);
 
         // Set what happens when the Enter button is clicked
         enterNames.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +42,7 @@ public class NameEntryActivity extends AppCompatActivity {
                 names[2] = p3Name.getText().toString();
                 names[3] = p4Name.getText().toString();
                 String validation = ScoreKeeper.editEntries(names);
-                if (validation == "empty"){
+                if (validation.equals("empty")){
                     Toast.makeText(getApplicationContext(), "Enter all player names to continue",
                             Toast.LENGTH_LONG).show();
                 } else {

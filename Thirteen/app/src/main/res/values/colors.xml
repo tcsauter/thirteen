@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff37474f</color>
-    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorPrimary">#84ffff</color>
+    <color name="colorPrimaryDark">#4bcbcc</color>
     <color name="colorAccent">@android:color/holo_blue_dark</color>
+    <color name="colorPrimaryLight">#eeffff</color>
+    <color name="colorSecondary">#ff8484</color>
+    <color name="colorSecondaryDark">#c85457</color>
+    <color name="colorSecondaryLight">#ffb6b4</color>
 
     <color name="background">#888888</color>
     <color name="red">#cc0000</color>
@@ -10,5 +14,6 @@
     <color name="blue">#0000cc</color>
     <color name="yellow">#ffcc00</color>
 
-    <color name="btn_disabled">#ccaaaa</color>
+    <color name="btn_disabled">@color/colorSecondaryLight</color>
+    <color name="btn_enabled">@color/colorSecondary</color>
 </resources>
