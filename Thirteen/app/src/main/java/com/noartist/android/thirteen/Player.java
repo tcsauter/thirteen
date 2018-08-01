@@ -1,10 +1,8 @@
 package com.noartist.android.thirteen;
 
-import java.util.ArrayList;
 
-/**
- * I'm experimenting with a new class to code the functions of the ScoreKeeper class in a more object-oriented way.
- */
+
+import java.util.ArrayList;
 
 class Player {
     private int mPosition;
@@ -14,6 +12,7 @@ class Player {
     private int mCurTake;
     private int mSandbags;
     private int mTotScore;
+    private int mColor;
 
     private ArrayList<Integer> mBidHistory;
     private ArrayList<Integer> mTakeHistory;
@@ -28,6 +27,17 @@ class Player {
         mCurTake = 0;
         mSandbags = 0;
         mTotScore = 0;
+        switch (position){
+            case 0: mColor = R.color.red;
+                break;
+            case 1: mColor = R.color.yellow;
+                break;
+            case 2: mColor = R.color.green;
+                break;
+            case 3: mColor = R.color.blue;
+                break;
+            default: break;
+        }
         mBidHistory = new ArrayList<Integer>(25);
         mTakeHistory = new ArrayList<Integer>(25);
         mScoreHistory = new ArrayList<Integer>(25);
@@ -42,6 +52,17 @@ class Player {
         mCurTake = 0;
         mSandbags = 0;
         mTotScore = 0;
+        switch (position){
+            case 0: mColor = R.color.red;
+                break;
+            case 1: mColor = R.color.yellow;
+                break;
+            case 2: mColor = R.color.green;
+                break;
+            case 3: mColor = R.color.blue;
+                break;
+            default: break;
+        }
         mBidHistory = new ArrayList<Integer>(25);
         mTakeHistory = new ArrayList<Integer>(25);
         mScoreHistory = new ArrayList<Integer>(25);
@@ -108,5 +129,9 @@ class Player {
 
     public int getPosition(){
         return mPosition;
+    }
+
+    public int getColor(){
+        return mColor;
     }
 }

@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ScoreSheetActivity extends AppCompatActivity {
     // Define variables for access to buttons
     private Button btBids;
@@ -17,6 +19,9 @@ public class ScoreSheetActivity extends AppCompatActivity {
     // Define variables for Round info
     private TextView tvRound;
     private ImageView ivRound;
+
+    // Player Card variables
+    int[] playerCardFields;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,28 @@ public class ScoreSheetActivity extends AppCompatActivity {
         // Bind Button variables to buttons
         btBids = (Button) findViewById(R.id.bt_Bids);
         btScores = (Button) findViewById(R.id.bt_Scores);
+
+        // Store references to player card variables
+        playerCardFields = new int[]{R.id.iv_pc_color_1,
+                R.id.iv_pc_color_2,
+                R.id.iv_pc_color_3,
+                R.id.iv_pc_color_4,
+                R.id.tv_pc_name_1,
+                R.id.tv_pc_name_2,
+                R.id.tv_pc_name_3,
+                R.id.tv_pc_name_4,
+                R.id.tv_pc_score_1,
+                R.id.tv_pc_score_2,
+                R.id.tv_pc_score_3,
+                R.id.tv_pc_score_4,
+                R.id.tv_pc_bid_1,
+                R.id.tv_pc_bid_2,
+                R.id.tv_pc_bid_3,
+                R.id.tv_pc_bid_4,
+                R.id.tv_pc_sandbags_1,
+                R.id.tv_pc_sandbags_2,
+                R.id.tv_pc_sandbags_3,
+                R.id.tv_pc_sandbags_4};
 
         // Set click listeners for buttons
         btBids.setOnClickListener(new View.OnClickListener(){
@@ -68,31 +95,40 @@ public class ScoreSheetActivity extends AppCompatActivity {
         if (ScoreKeeper.getSwitches()){
             btBids.setActivated(false);
             btScores.setActivated(true);
-            if (this.getResources().getBoolean(R.bool.is_landscape)){
-                btBids.setBackgroundResource(R.color.btn_disabled);
-                btScores.setBackgroundResource(R.color.red);
-            } else {
-                btBids.setVisibility(View.GONE);
-                btScores.setVisibility(View.VISIBLE);
-            }
+            btBids.setBackgroundResource(R.color.btn_disabled);
+            btScores.setBackgroundResource(R.color.btn_enabled);
         } else {
             btBids.setActivated(true);
             btScores.setActivated(false);
-            if (this.getResources().getBoolean(R.bool.is_landscape)){
-                btBids.setBackgroundResource(R.color.red);
-                btScores.setBackgroundResource(R.color.btn_disabled);
-            } else {
-                btBids.setVisibility(View.VISIBLE);
-                btScores.setVisibility(View.GONE);
-            }
+            btBids.setBackgroundResource(R.color.btn_enabled);
+            btScores.setBackgroundResource(R.color.btn_disabled);
         }
         // Set current round
         setRound();
 
-        // Set up ArrayList Adapter
-        PlayerAdapter adapter = new PlayerAdapter(this,ScoreKeeper.players);
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(adapter);
+        Player[] players = new Player[4];
+        players = ScoreKeeper.sortPlayerArray();
+        ArrayList<ImageView> ivPlayerColor = new ArrayList<ImageView>();
+        ArrayList<TextView> tvPlayerName = new ArrayList<TextView>();
+        ArrayList<TextView> tvPlayerScore = new ArrayList<TextView>();
+        ArrayList<TextView> tvPlayerBid = new ArrayList<TextView>();
+        ArrayList<TextView> tvPlayerSandbags = new ArrayList<TextView>();
+        int i = 0;
+        for (Player player : players){
+            ivPlayerColor.add(i,(ImageView) findViewById(playerCardFields[i]));
+            tvPlayerName.add(i, (TextView) findViewById(playerCardFields[i+4]));
+            tvPlayerScore.add(i, (TextView) findViewById(playerCardFields[i+8]));
+            tvPlayerBid.add(i, (TextView) findViewById(playerCardFields[i+12]));
+            tvPlayerSandbags.add(i, (TextView) findViewById(playerCardFields[i+16]));
+
+            ivPlayerColor.get(i).setBackgroundResource(player.getColor());
+            tvPlayerName.get(i).setText(player.getName());
+            tvPlayerScore.get(i).setText(Integer.toString(player.getScore()));
+            tvPlayerBid.get(i).setText(Integer.toString(player.getBid()));
+            tvPlayerSandbags.get(i).setText(Integer.toString(player.getSandbags()));
+
+            i++;
+        }
     }
 
     private void setRound() {

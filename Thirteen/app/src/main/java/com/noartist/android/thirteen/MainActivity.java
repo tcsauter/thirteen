@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Define and initialize the Start button
-        Button start = (Button) findViewById(R.id.bt_begin);
-        Button rules = (Button) findViewById(R.id.bt_rules);
-        Button help = (Button) findViewById(R.id.bt_help);
+        Button start = findViewById(R.id.bt_begin);
+        Button rules = findViewById(R.id.bt_rules);
+        Button help = findViewById(R.id.bt_help);
 
         // Set up the Rules button listener
         rules.setOnClickListener(new View.OnClickListener(){
