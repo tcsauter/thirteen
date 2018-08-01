@@ -62,32 +62,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bt_rules"
-        android:text="@string/title_activity_rules"
-        style="@android:style/Widget.Holo.Light.ImageButton"
-        android:background="@color/yellow"
-        android:fontFamily="sans-serif"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bt_help"
-        android:text="@string/app_help"
-        style="@android:style/Widget.Holo.Light.ImageButton"
-        android:background="@color/blue"
-        android:fontFamily="sans-serif"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
     <!--
 
         android:layout_marginLeft="15dp"
